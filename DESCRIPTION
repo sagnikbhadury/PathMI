@@ -1,0 +1,23 @@
+Package: PathMI
+Type: Package
+Title: Mutual Information Estimators for Histopathology Embeddings
+Version: 0.1.0
+Authors@R: person("Sagnik", "Bhadury", email = "bhadury@umich.edu", role = c("aut", "cre"))
+Description: Estimates mutual information between patient-level histopathology
+    tile embeddings and binary molecular targets (e.g. MSI status, gene fusion
+    status), using three interchangeable classifiers: an unpenalized OLS/DOE
+    estimator for the low-dimensional regime, a LASSO-CV logistic estimator
+    for the high-dimensional regime, and a fully Bayesian Polya-Gamma
+    logistic horseshoe estimator (SUBHO) with a marginal-likelihood feature
+    walk. Each estimator ships with a permutation test and
+    Benjamini-Hochberg FDR correction across molecular targets.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    glmnet,
+    MASS,
+    BayesLogit,
+    stats,
+    graphics
+RoxygenNote: 7.3.1
