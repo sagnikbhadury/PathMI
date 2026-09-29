@@ -1,0 +1,36 @@
+17:58:32  === tile maps | CRC | H-optimus-1 | pca_mean arm === 
+17:58:32  roster n = 428 | Z_scaled 428 x 50 | targets: MSI 
+17:58:38  indexed 435 h5 files; all 428 roster slides present 
+17:59:23    pass 1: 50 / 428 slides pooled (0.8 min) 
+17:59:42    pass 1: 100 / 428 slides pooled (1.2 min) 
+18:00:04    pass 1: 150 / 428 slides pooled (1.5 min) 
+18:00:26    pass 1: 200 / 428 slides pooled (1.9 min) 
+18:01:38    pass 1: 250 / 428 slides pooled (3.1 min) 
+18:03:37    pass 1: 300 / 428 slides pooled (5.1 min) 
+18:05:20    pass 1: 350 / 428 slides pooled (6.8 min) 
+18:07:14    pass 1: 400 / 428 slides pooled (8.7 min) 
+18:08:03  pass 1 done: Zraw 428 x 1536 | tiles per slide median 6865 
+18:08:04  PCA rebuilt: 50 components | flipped columns: 0 | max |Zs_rec - Zs_saved| = 0.00e+00 
+18:08:08  [MSI] refit MI = 0.114223 | stored MI = 0.114223 | diff 0.0e+00 | k* = 9 | selected PCs: 1,2,4,6,7,8,10,15,42 
+18:08:08  [MSI] plug-in MI = 0.1613 (90% posterior 0.1388, 0.1583) | SUBHO MI = 0.1142 | prevalence 0.138 | mean eta sd 0.587 
+18:09:38    pass 2: 25 / 428 slides scored (11.1 min) 
+18:10:14    pass 2: 50 / 428 slides scored (11.7 min) 
+18:10:39    pass 2: 75 / 428 slides scored (12.1 min) 
+18:11:05    pass 2: 100 / 428 slides scored (12.5 min) 
+18:11:35    pass 2: 125 / 428 slides scored (13.0 min) 
+18:12:02    pass 2: 150 / 428 slides scored (13.5 min) 
+18:12:32    pass 2: 175 / 428 slides scored (14.0 min) 
+18:12:59    pass 2: 200 / 428 slides scored (14.4 min) 
+18:13:46    pass 2: 225 / 428 slides scored (15.2 min) 
+18:16:31    pass 2: 250 / 428 slides scored (18.0 min) 
+18:19:10    pass 2: 275 / 428 slides scored (20.6 min) 
+18:22:22    pass 2: 300 / 428 slides scored (23.8 min) 
+18:25:41    pass 2: 325 / 428 slides scored (27.2 min) 
+18:27:33    pass 2: 350 / 428 slides scored (29.0 min) 
+18:30:10    pass 2: 375 / 428 slides scored (31.6 min) 
+18:33:33    pass 2: 400 / 428 slides scored (35.0 min) 
+18:36:40    pass 2: 425 / 428 slides scored (38.1 min) 
+18:36:50  pass 2 done: 4784871 tiles | max |eta - eta_from_tiles| = 3.74e-06 (float32 tiles vs float32 pooled mean) 
+18:38:01  saved tile rds, slide csv, fit summary 
+18:38:02  draft figures written 
+18:38:02  done in 39.5 min 
