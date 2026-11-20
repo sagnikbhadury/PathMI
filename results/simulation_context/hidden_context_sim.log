@@ -1,0 +1,5 @@
+18:16:34  truth: prevalence 0.366, H(Y) 0.657, I(Z;Y|A) = 0.1697; pooled I(Z;Y) = 0.0095 at pi_A = 0.25, 0.0386 at pi_A = 0.50, 0.0894 at pi_A = 0.75 
+18:23:05  === done in 6.5 min === 
+18:23:05  pi_A 0.25: pooled 0.0044 (truth 0.0095, above null in 18%) | A 0.1227 (truth 0.1697, 94%) | B 0.0034 (truth 0, null 0.0028, above null in 6%) | conditional 0.0332 (truth 0.0424) 
+18:23:05  pi_A 0.50: pooled 0.0232 (truth 0.0386, above null in 88%) | A 0.1468 (truth 0.1697, 100%) | B 0.0059 (truth 0, null 0.0062, above null in 2%) | conditional 0.0763 (truth 0.0848) 
+18:23:05  pi_A 0.75: pooled 0.0781 (truth 0.0894, above null in 100%) | A 0.1542 (truth 0.1697, 100%) | B 0.0173 (truth 0, null 0.0135, above null in 8%) | conditional 0.1199 (truth 0.1272) 

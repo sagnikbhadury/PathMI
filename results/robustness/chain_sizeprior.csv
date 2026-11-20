@@ -1,0 +1,49 @@
+"id","role","cohort","model","target","key","MI_table","k_table","what","seed","MI","MI_raw","k","cond"
+"CRC|conch_v15|MSI|poly_moment","difficult","CRC","CONCH v1.5","MSI","poly_moment",0.0319554174028222,50,"seed",1,0.0319554174028222,0.0319554174028222,50,27.1106815009136
+"CRC|conch_v15|MSI|poly_moment","difficult","CRC","CONCH v1.5","MSI","poly_moment",0.0319554174028222,50,"seed",2,0.0319554174028222,0.0319554174028222,50,27.1106815009133
+"CRC|conch_v15|MSI|poly_moment","difficult","CRC","CONCH v1.5","MSI","poly_moment",0.0319554174028222,50,"seed",3,0.10397804451516,0.10397804451516,15,9.16960063099235
+"CRC|conch_v15|MSI|poly_moment","difficult","CRC","CONCH v1.5","MSI","poly_moment",0.0319554174028222,50,"seed",4,0.0319554174028222,0.0319554174028222,50,27.1106815009134
+"CRC|conch_v15|MSI|poly_moment","difficult","CRC","CONCH v1.5","MSI","poly_moment",0.0319554174028222,50,"seed",5,0.0319554174028222,0.0319554174028222,50,27.1106815009134
+"CRC|conch_v15|MSI|poly_moment","difficult","CRC","CONCH v1.5","MSI","poly_moment",0.0319554174028222,50,"sizeprior",42,0.0498539010851649,0.0498539010851649,4,3.88315821812353
+"CRC|hoptimus1|MSI|pca_mean","difficult","CRC","H-optimus-1","MSI","pca_mean",0.105203432831506,7,"seed",1,0.109774567972501,0.109774567972501,8,7.65121291272719
+"CRC|hoptimus1|MSI|pca_mean","difficult","CRC","H-optimus-1","MSI","pca_mean",0.105203432831506,7,"seed",2,0.105203432831506,0.105203432831506,7,7.17645014272354
+"CRC|hoptimus1|MSI|pca_mean","difficult","CRC","H-optimus-1","MSI","pca_mean",0.105203432831506,7,"seed",3,0.105203432831506,0.105203432831506,7,7.17645014272354
+"CRC|hoptimus1|MSI|pca_mean","difficult","CRC","H-optimus-1","MSI","pca_mean",0.105203432831506,7,"seed",4,0.109774567972501,0.109774567972501,8,7.65121291272719
+"CRC|hoptimus1|MSI|pca_mean","difficult","CRC","H-optimus-1","MSI","pca_mean",0.105203432831506,7,"seed",5,0.105203432831506,0.105203432831506,7,7.17645014272354
+"CRC|hoptimus1|MSI|pca_mean","difficult","CRC","H-optimus-1","MSI","pca_mean",0.105203432831506,7,"sizeprior",42,0.0828865286011825,0.0828865286011825,4,4.43167368971604
+"CRC|virchow2|MSI|pca_mean","primary","CRC","Virchow2","MSI","pca_mean",0.118352985782462,11,"seed",1,0.118352985782462,0.118352985782462,11,8.99649735924455
+"CRC|virchow2|MSI|pca_mean","primary","CRC","Virchow2","MSI","pca_mean",0.118352985782462,11,"seed",2,0.118352985782462,0.118352985782462,11,8.99649735924454
+"CRC|virchow2|MSI|pca_mean","primary","CRC","Virchow2","MSI","pca_mean",0.118352985782462,11,"seed",3,0.118352985782462,0.118352985782462,11,8.99649735924457
+"CRC|virchow2|MSI|pca_mean","primary","CRC","Virchow2","MSI","pca_mean",0.118352985782462,11,"seed",4,0.118352985782462,0.118352985782462,11,8.99649735924456
+"CRC|virchow2|MSI|pca_mean","primary","CRC","Virchow2","MSI","pca_mean",0.118352985782462,11,"seed",5,0.118352985782462,0.118352985782462,11,8.99649735924456
+"CRC|virchow2|MSI|pca_mean","primary","CRC","Virchow2","MSI","pca_mean",0.118352985782462,11,"sizeprior",42,0.0868429621226718,0.0868429621226718,6,5.59660078525578
+"PRAD|conch_v15|ERG|poly_moment","difficult","PRAD","CONCH v1.5","ERG","poly_moment",0.0171354446902177,1,"seed",1,0.0171354446902177,0.0171354446902177,1,1.45209150571782
+"PRAD|conch_v15|ERG|poly_moment","difficult","PRAD","CONCH v1.5","ERG","poly_moment",0.0171354446902177,1,"seed",2,0.0171354446902177,0.0171354446902177,1,1.45209150571782
+"PRAD|conch_v15|ERG|poly_moment","difficult","PRAD","CONCH v1.5","ERG","poly_moment",0.0171354446902177,1,"seed",3,0.0171354446902177,0.0171354446902177,1,1.45209150571782
+"PRAD|conch_v15|ERG|poly_moment","difficult","PRAD","CONCH v1.5","ERG","poly_moment",0.0171354446902177,1,"seed",4,0.0171354446902177,0.0171354446902177,1,1.45209150571782
+"PRAD|conch_v15|ERG|poly_moment","difficult","PRAD","CONCH v1.5","ERG","poly_moment",0.0171354446902177,1,"seed",5,0.0171354446902177,0.0171354446902177,1,1.45209150571782
+"PRAD|conch_v15|ERG|poly_moment","difficult","PRAD","CONCH v1.5","ERG","poly_moment",0.0171354446902177,1,"sizeprior",42,0.0171354446902177,0.0171354446902177,1,1.45209150571782
+"PRAD|hoptimus1|ERG|cosine_moment","primary","PRAD","H-optimus-1","ERG","cosine_moment",0.0841548258009856,2,"seed",1,0.0841548258009856,0.0841548258009856,2,1.51211581017453
+"PRAD|hoptimus1|ERG|cosine_moment","primary","PRAD","H-optimus-1","ERG","cosine_moment",0.0841548258009856,2,"seed",2,0.0841548258009856,0.0841548258009856,2,1.51211581017453
+"PRAD|hoptimus1|ERG|cosine_moment","primary","PRAD","H-optimus-1","ERG","cosine_moment",0.0841548258009856,2,"seed",3,0.0841548258009856,0.0841548258009856,2,1.51211581017453
+"PRAD|hoptimus1|ERG|cosine_moment","primary","PRAD","H-optimus-1","ERG","cosine_moment",0.0841548258009856,2,"seed",4,0.0841548258009856,0.0841548258009856,2,1.51211581017453
+"PRAD|hoptimus1|ERG|cosine_moment","primary","PRAD","H-optimus-1","ERG","cosine_moment",0.0841548258009856,2,"seed",5,0.0841548258009856,0.0841548258009856,2,1.51211581017453
+"PRAD|hoptimus1|ERG|cosine_moment","primary","PRAD","H-optimus-1","ERG","cosine_moment",0.0841548258009856,2,"sizeprior",42,0.0841548258009856,0.0841548258009856,2,1.51211581017453
+"PRAD|hoptimus1|ERG|pca_moment","difficult","PRAD","H-optimus-1","ERG","pca_moment",0.0704254435360664,2,"seed",1,0.0704254435360664,0.0704254435360664,2,1.52617484615596
+"PRAD|hoptimus1|ERG|pca_moment","difficult","PRAD","H-optimus-1","ERG","pca_moment",0.0704254435360664,2,"seed",2,0.0704254435360664,0.0704254435360664,2,1.52617484615596
+"PRAD|hoptimus1|ERG|pca_moment","difficult","PRAD","H-optimus-1","ERG","pca_moment",0.0704254435360664,2,"seed",3,0.0704254435360664,0.0704254435360664,2,1.52617484615596
+"PRAD|hoptimus1|ERG|pca_moment","difficult","PRAD","H-optimus-1","ERG","pca_moment",0.0704254435360664,2,"seed",4,0.0704254435360664,0.0704254435360664,2,1.52617484615596
+"PRAD|hoptimus1|ERG|pca_moment","difficult","PRAD","H-optimus-1","ERG","pca_moment",0.0704254435360664,2,"seed",5,0.0704254435360664,0.0704254435360664,2,1.52617484615596
+"PRAD|hoptimus1|ERG|pca_moment","difficult","PRAD","H-optimus-1","ERG","pca_moment",0.0704254435360664,2,"sizeprior",42,0.0578582140637903,0.0578582140637903,1,1.32444761902101
+"PRAD|hoptimus1|ETS|cosine_moment","primary","PRAD","H-optimus-1","ETS","cosine_moment",0.150275482488338,6,"seed",1,0.150275482488338,0.150275482488338,6,2.89679650311494
+"PRAD|hoptimus1|ETS|cosine_moment","primary","PRAD","H-optimus-1","ETS","cosine_moment",0.150275482488338,6,"seed",2,0.150275482488338,0.150275482488338,6,2.89679650311494
+"PRAD|hoptimus1|ETS|cosine_moment","primary","PRAD","H-optimus-1","ETS","cosine_moment",0.150275482488338,6,"seed",3,0.150275482488338,0.150275482488338,6,2.89679650311494
+"PRAD|hoptimus1|ETS|cosine_moment","primary","PRAD","H-optimus-1","ETS","cosine_moment",0.150275482488338,6,"seed",4,0.150275482488338,0.150275482488338,6,2.89679650311494
+"PRAD|hoptimus1|ETS|cosine_moment","primary","PRAD","H-optimus-1","ETS","cosine_moment",0.150275482488338,6,"seed",5,0.150275482488338,0.150275482488338,6,2.89679650311494
+"PRAD|hoptimus1|ETS|cosine_moment","primary","PRAD","H-optimus-1","ETS","cosine_moment",0.150275482488338,6,"sizeprior",42,0.130020350300141,0.130020350300141,4,2.31865099182499
+"PRAD|virchow2|ERG|cosine_moment","difficult","PRAD","Virchow2","ERG","cosine_moment",0.0420313853000254,2,"seed",1,0.0420313853000254,0.0420313853000254,2,1.28731423694702
+"PRAD|virchow2|ERG|cosine_moment","difficult","PRAD","Virchow2","ERG","cosine_moment",0.0420313853000254,2,"seed",2,0.0420313853000254,0.0420313853000254,2,1.28731423694702
+"PRAD|virchow2|ERG|cosine_moment","difficult","PRAD","Virchow2","ERG","cosine_moment",0.0420313853000254,2,"seed",3,0.0420313853000254,0.0420313853000254,2,1.28731423694702
+"PRAD|virchow2|ERG|cosine_moment","difficult","PRAD","Virchow2","ERG","cosine_moment",0.0420313853000254,2,"seed",4,0.0420313853000254,0.0420313853000254,2,1.28731423694702
+"PRAD|virchow2|ERG|cosine_moment","difficult","PRAD","Virchow2","ERG","cosine_moment",0.0420313853000254,2,"seed",5,0.0420313853000254,0.0420313853000254,2,1.28731423694702
+"PRAD|virchow2|ERG|cosine_moment","difficult","PRAD","Virchow2","ERG","cosine_moment",0.0420313853000254,2,"sizeprior",42,0.0420313853000254,0.0420313853000254,2,1.28731423694702

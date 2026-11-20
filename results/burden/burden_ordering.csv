@@ -1,0 +1,67 @@
+"first","second","N90_first","N90_second","frac_agree","frac_strict","frac_tie"
+"H-optimus-1 / MSI","UNI v2 / MSI",15,15,0.9,0.4,0.5
+"H-optimus-1 / MSI","UNI v2 / ERG",15,15,0.5,0.3,0.2
+"H-optimus-1 / MSI","H-optimus-1 / ERG",15,20,0.85,0.75,0.1
+"H-optimus-1 / MSI","UNI v2 / ETS",15,20,0.85,0.7,0.15
+"H-optimus-1 / MSI","CONCH v1.5 / ERG",15,25,0.75,0.7,0.05
+"H-optimus-1 / MSI","CONCH v1.5 / ETS",15,25,0.85,0.75,0.1
+"H-optimus-1 / MSI","CONCH v1.5 / MSI",15,30,0.9,0.8,0.1
+"H-optimus-1 / MSI","Virchow2 / MSI",15,30,1,0.85,0.15
+"H-optimus-1 / MSI","H-optimus-1 / ETS",15,40,0.9,0.75,0.15
+"H-optimus-1 / MSI","Virchow2 / ETS",15,40,0.9,0.75,0.15
+"H-optimus-1 / MSI","Virchow2 / ERG",15,50,0.75,0.65,0.1
+"UNI v2 / MSI","UNI v2 / ERG",15,15,0.4,0.15,0.25
+"UNI v2 / MSI","H-optimus-1 / ERG",15,20,0.8,0.7,0.1
+"UNI v2 / MSI","UNI v2 / ETS",15,20,0.85,0.65,0.2
+"UNI v2 / MSI","CONCH v1.5 / ERG",15,25,0.85,0.5,0.35
+"UNI v2 / MSI","CONCH v1.5 / ETS",15,25,0.85,0.6,0.25
+"UNI v2 / MSI","CONCH v1.5 / MSI",15,30,0.9,0.85,0.05
+"UNI v2 / MSI","Virchow2 / MSI",15,30,1,0.85,0.15
+"UNI v2 / MSI","H-optimus-1 / ETS",15,40,0.85,0.75,0.1
+"UNI v2 / MSI","Virchow2 / ETS",15,40,0.95,0.8,0.15
+"UNI v2 / MSI","Virchow2 / ERG",15,50,0.7,0.65,0.05
+"UNI v2 / ERG","H-optimus-1 / ERG",15,20,0.95,0.95,0
+"UNI v2 / ERG","UNI v2 / ETS",15,20,0.9,0.7,0.2
+"UNI v2 / ERG","CONCH v1.5 / ERG",15,25,0.95,0.6,0.35
+"UNI v2 / ERG","CONCH v1.5 / ETS",15,25,0.95,0.85,0.1
+"UNI v2 / ERG","CONCH v1.5 / MSI",15,30,1,0.9,0.1
+"UNI v2 / ERG","Virchow2 / MSI",15,30,1,1,0
+"UNI v2 / ERG","H-optimus-1 / ETS",15,40,0.9,0.9,0
+"UNI v2 / ERG","Virchow2 / ETS",15,40,0.9,0.9,0
+"UNI v2 / ERG","Virchow2 / ERG",15,50,0.8,0.65,0.15
+"H-optimus-1 / ERG","UNI v2 / ETS",20,20,0.45,0.3,0.15
+"H-optimus-1 / ERG","CONCH v1.5 / ERG",20,25,0.35,0.35,0
+"H-optimus-1 / ERG","CONCH v1.5 / ETS",20,25,0.35,0.3,0.05
+"H-optimus-1 / ERG","CONCH v1.5 / MSI",20,30,0.55,0.4,0.15
+"H-optimus-1 / ERG","Virchow2 / MSI",20,30,0.5,0.25,0.25
+"H-optimus-1 / ERG","H-optimus-1 / ETS",20,40,0.65,0.2,0.45
+"H-optimus-1 / ERG","Virchow2 / ETS",20,40,0.55,0.35,0.2
+"H-optimus-1 / ERG","Virchow2 / ERG",20,50,0.55,0.3,0.25
+"UNI v2 / ETS","CONCH v1.5 / ERG",20,25,0.55,0.4,0.15
+"UNI v2 / ETS","CONCH v1.5 / ETS",20,25,0.6,0.45,0.15
+"UNI v2 / ETS","CONCH v1.5 / MSI",20,30,0.8,0.5,0.3
+"UNI v2 / ETS","Virchow2 / MSI",20,30,0.8,0.5,0.3
+"UNI v2 / ETS","H-optimus-1 / ETS",20,40,0.7,0.55,0.15
+"UNI v2 / ETS","Virchow2 / ETS",20,40,0.8,0.6,0.2
+"UNI v2 / ETS","Virchow2 / ERG",20,50,0.75,0.35,0.4
+"CONCH v1.5 / ERG","CONCH v1.5 / ETS",25,25,0.8,0.45,0.35
+"CONCH v1.5 / ERG","CONCH v1.5 / MSI",25,30,0.65,0.55,0.1
+"CONCH v1.5 / ERG","Virchow2 / MSI",25,30,0.8,0.7,0.1
+"CONCH v1.5 / ERG","H-optimus-1 / ETS",25,40,0.7,0.65,0.05
+"CONCH v1.5 / ERG","Virchow2 / ETS",25,40,0.75,0.55,0.2
+"CONCH v1.5 / ERG","Virchow2 / ERG",25,50,0.5,0.4,0.1
+"CONCH v1.5 / ETS","CONCH v1.5 / MSI",25,30,0.75,0.5,0.25
+"CONCH v1.5 / ETS","Virchow2 / MSI",25,30,0.75,0.55,0.2
+"CONCH v1.5 / ETS","H-optimus-1 / ETS",25,40,0.75,0.55,0.2
+"CONCH v1.5 / ETS","Virchow2 / ETS",25,40,0.8,0.5,0.3
+"CONCH v1.5 / ETS","Virchow2 / ERG",25,50,0.45,0.35,0.1
+"CONCH v1.5 / MSI","Virchow2 / MSI",30,30,0.5,0.35,0.15
+"CONCH v1.5 / MSI","H-optimus-1 / ETS",30,40,0.65,0.45,0.2
+"CONCH v1.5 / MSI","Virchow2 / ETS",30,40,0.75,0.5,0.25
+"CONCH v1.5 / MSI","Virchow2 / ERG",30,50,0.5,0.35,0.15
+"Virchow2 / MSI","H-optimus-1 / ETS",30,40,0.75,0.35,0.4
+"Virchow2 / MSI","Virchow2 / ETS",30,40,0.75,0.4,0.35
+"Virchow2 / MSI","Virchow2 / ERG",30,50,0.45,0.35,0.1
+"H-optimus-1 / ETS","Virchow2 / ETS",40,40,0.7,0.35,0.35
+"H-optimus-1 / ETS","Virchow2 / ERG",40,50,0.6,0.35,0.25
+"Virchow2 / ETS","Virchow2 / ERG",40,50,0.5,0.15,0.35

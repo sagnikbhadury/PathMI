@@ -1,23 +1,39 @@
 Package: PathMI
 Type: Package
-Title: Mutual Information Estimators for Histopathology Embeddings
-Version: 0.1.0
-Authors@R: person("Sagnik", "Bhadury", email = "bhadury@umich.edu", role = c("aut", "cre"))
-Description: Estimates mutual information between patient-level histopathology
-    tile embeddings and binary molecular targets (e.g. MSI status, gene fusion
-    status), using three interchangeable classifiers: an unpenalized OLS/DOE
-    estimator for the low-dimensional regime, a LASSO-CV logistic estimator
-    for the high-dimensional regime, and a fully Bayesian Polya-Gamma
-    logistic horseshoe estimator (SUBHO) with a marginal-likelihood feature
-    walk. Each estimator ships with a permutation test and
-    Benjamini-Hochberg FDR correction across molecular targets.
+Title: Measuring Molecular Recoverability in Pathology Foundation-Model Embeddings
+Version: 0.2.0
+Authors@R: c(
+    person("Sagnik", "Bhadury", email = "bhadury@umich.edu", role = c("aut", "cre")))
+Description: Estimates how much information about a patient's binary
+    molecular state the embeddings of a pathology foundation model carry
+    (molecular recoverability) with PathMI, a Bayesian difference-of-entropies
+    estimator: a Polya-Gamma logistic horseshoe ranks the coordinates, a walk
+    over the nested models scored by their Laplace marginal likelihood selects
+    the model, and the estimate is the log Bayes factor per patient. Around the
+    estimator the package provides the metrology used in the accompanying
+    paper: tile pooling and patient-level aggregation, linear and kernel PCA
+    with out-of-sample projection, a permutation null with full refitting and
+    joint-permutation max-T selection, half-sampling (delete-d jackknife)
+    uncertainty, reproducibility bounds, attributable (incremental) and
+    patient-held-out usable recoverability, patient-number learning curves
+    with an evidence status, the exact tile-level decomposition with specific
+    surprise maps, the tissue-sampling burden, the Recoverability Record with
+    JSON export, simulators, and comparison estimators (LASSO-CV, OLS and the
+    Donsker-Varadhan bound with a linear critic).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 4.1)
 Imports:
     glmnet,
     MASS,
     BayesLogit,
     stats,
-    graphics
-RoxygenNote: 7.3.1
+    graphics,
+    grDevices,
+    parallel
+Suggests:
+    jsonlite,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+RoxygenNote: 7.3.3

@@ -1,3 +1,9 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^results$
+^study$
+^tools$
+^README\.Rmd$
+^\.github$
+^\.gitignore$
+^LICENSE\.md$

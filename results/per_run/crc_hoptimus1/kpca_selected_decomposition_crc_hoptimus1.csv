@@ -1,0 +1,5 @@
+"key","label","agg_method","MI_obs","eig_cond","p_maxT","n_candidates"
+"cosine_attention","Cosine kPCA / Attention","attention",0.113404744115078,60.4721980385837,0.00497512437810945,4
+"rbf_mean","RBF kPCA / Mean","mean",0.117752645594385,39.2051228581814,0.00497512437810945,4
+"rbf_moment","RBF kPCA / Moment","moment",0.116302224261949,78.0156418669828,0.00497512437810945,4
+"rbf_norm","RBF kPCA / Norm","norm",0.115893341250792,38.6694314380798,0.00497512437810945,4

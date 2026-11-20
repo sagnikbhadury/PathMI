@@ -1,0 +1,17 @@
+
+== I_usable_ridge ==
+above null band (null mean + 2 s.d.) in 180 of 192 | r with PathMI 0.85 (Spearman 0.85) | exceeds PathMI in 106 | median usable/present 1.04
+Friedman over 48 blocks: chi2 = 61.8, p = 2.5e-13 | mean ranks: CONCH v1.5 3.27, H-optimus-1 1.69, UNI v2 3.19, Virchow2 1.85
+  CRC/MSI: best-arm usable by model: CONCH v1.5 0.087, H-optimus-1 0.099, UNI v2 0.079, Virchow2 0.106 | best overall arm: Virchow2 0.106
+  PRAD/ERG: best-arm usable by model: CONCH v1.5 0.022, H-optimus-1 0.067, UNI v2 0.046, Virchow2 0.060 | best overall arm: H-optimus-1 0.067
+  PRAD/ETS: best-arm usable by model: CONCH v1.5 0.046, H-optimus-1 0.112, UNI v2 0.083, Virchow2 0.089 | best overall arm: H-optimus-1 0.112
+
+== I_infold ==
+above null band (null mean + 2 s.d.) in 180 of 192 | r with PathMI 0.85 (Spearman 0.85) | exceeds PathMI in 106 | median usable/present 1.04
+Friedman over 48 blocks: chi2 = 61.8, p = 2.5e-13 | mean ranks: CONCH v1.5 3.27, H-optimus-1 1.69, UNI v2 3.19, Virchow2 1.85
+  CRC/MSI: best-arm usable by model: CONCH v1.5 0.087, H-optimus-1 0.099, UNI v2 0.079, Virchow2 0.106 | best overall arm: Virchow2 0.106
+  PRAD/ERG: best-arm usable by model: CONCH v1.5 0.022, H-optimus-1 0.067, UNI v2 0.046, Virchow2 0.060 | best overall arm: H-optimus-1 0.067
+  PRAD/ETS: best-arm usable by model: CONCH v1.5 0.046, H-optimus-1 0.112, UNI v2 0.083, Virchow2 0.089 | best overall arm: H-optimus-1 0.112
+
+in-fold minus fixed: median +0.0000, IQR +0.0000 to +0.0000, range +0.0000 to +0.0000; |diff| < eps_rep (0.0095) in 192 of 192
+best arms in-fold AUC: CRC/MSI 0.88; PRAD/ETS 0.76; PRAD/ERG 0.64

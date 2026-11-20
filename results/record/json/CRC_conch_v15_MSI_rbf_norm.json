@@ -1,0 +1,106 @@
+{
+  "schema": "pathmi.recoverability_record/1.0",
+  "record_type": "measurement",
+  "provenance": {
+    "model": "CONCH v1.5",
+    "trident_feature_key": "conch_v15",
+    "embedding_width": 768,
+    "tile_px_at_20x": 512,
+    "magnification": "20x, ~0.5 um/px",
+    "cohort": "TCGA-CRC",
+    "state": "MSI",
+    "projection": "rbf",
+    "retained_dimension": 50,
+    "pooling": "norm",
+    "covariates": "size, stage",
+    "roster_n": 408,
+    "prevalence": 0.1373
+  },
+  "protocol": {
+    "estimator": "PathMI (horseshoe ranking, Laplace marginal-likelihood walk, log Bayes factor per patient), v_beta = 1, 2000 Gibbs iterations, 500 burn-in, thin 10",
+    "null": "200 label permutations, whole estimator refitted",
+    "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
+    "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
+    "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+    "units": "nats"
+  },
+  "measurement": {
+    "label_entropy": 0.3999,
+    "represented": 0.0944,
+    "share_of_entropy": 0.236,
+    "null_mean": 0.0025,
+    "null_sd": 0.0023,
+    "permutation_p": 0.005,
+    "epsilon_rep": 0.0215,
+    "se": 0.0275,
+    "ci90": [0.0492, 0.1396],
+    "attributable": 0.0936,
+    "covariate_only": 0.0173,
+    "usable": 0.087,
+    "usable_sd": 0.0104,
+    "usable_auc": 0.814,
+    "tile_burden": {
+      "N90": 30,
+      "N90_interval": [30, 40],
+      "N95": 75,
+      "N95_interval": [75, 100]
+    }
+  },
+  "evidence": {
+    "status": "resolved",
+    "lower_bound_90": 0.0493,
+    "threshold": 0.024,
+    "N_evidence": 408,
+    "learning_curve": [
+      {
+        "n": 50,
+        "represented_mean": 0.0377,
+        "se": 0.0219,
+        "null_mean": 0.0344,
+        "usable_mean": 0.0068,
+        "resolved": false
+      },
+      {
+        "n": 100,
+        "represented_mean": 0.0314,
+        "se": 0.0251,
+        "null_mean": 0.0153,
+        "usable_mean": 0.044,
+        "resolved": false
+      },
+      {
+        "n": 150,
+        "represented_mean": 0.0349,
+        "se": 0.0273,
+        "null_mean": 0.0105,
+        "usable_mean": 0.0504,
+        "resolved": false
+      },
+      {
+        "n": 200,
+        "represented_mean": 0.0473,
+        "se": 0.0437,
+        "null_mean": 0.006,
+        "usable_mean": 0.0629,
+        "resolved": false
+      },
+      {
+        "n": 204,
+        "represented_mean": 0.0458,
+        "se": 0.0378,
+        "null_mean": 0.0051,
+        "usable_mean": 0.06,
+        "resolved": false
+      },
+      {
+        "n": 408,
+        "represented_mean": 0.0944,
+        "se": 0.0275,
+        "null_mean": 0.0025,
+        "usable_mean": 0.087,
+        "resolved": true
+      }
+    ]
+  },
+  "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+}

@@ -141,7 +141,7 @@ sagnik.horseshoe.logistic <- function(X, y,
 
     lambda_star <- tau_sq * lambda_sq
 
-    if (i %% 500 == 0) cat(sprintf("  [HS-logistic] Iteration %d\n", i))
+    if (isTRUE(getOption("PathMI.verbose", FALSE)) && i %% 500 == 0) cat(sprintf("  [HS-logistic] Iteration %d\n", i))
 
     if (i > burn && (i - burn) %% thin == 0) {
       idx <- (i - burn) / thin

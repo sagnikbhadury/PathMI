@@ -1,0 +1,114 @@
+{
+  "schema": "pathmi.recoverability_record/1.0",
+  "provenance": {
+    "cohort": "simulated weak",
+    "model": "simulated encoder (D = 64)",
+    "pooling": "mean",
+    "projection": "cosine",
+    "d": 20,
+    "unit": "patient"
+  },
+  "measurement": {
+    "n": 400,
+    "label_entropy": 0.588169,
+    "represented": 0.008206,
+    "share_of_entropy": 0.013952,
+    "k": 1,
+    "null_mean": 0.001441,
+    "null_sd": 0.002294,
+    "permutation_p": 0.039604,
+    "epsilon_rep": 0.003999,
+    "se": 0.00919,
+    "ci90": [0, 0.023321],
+    "attributable": 0.010562,
+    "usable": -0.002016,
+    "usable_auc": 0.512,
+    "tile_burden": null
+  },
+  "evidence": {
+    "status": "unresolved",
+    "threshold": 0.005439,
+    "lower_bound_90": -0.00691,
+    "N_evidence": null,
+    "learning_curve": [
+      {
+        "n": 50,
+        "estimate": 0.034634,
+        "se": 0.036308,
+        "null_mean": 0.029603,
+        "usable": -0.012734,
+        "source": "subsample",
+        "lower": -0.025088,
+        "threshold": 0.033602,
+        "resolved": false
+      },
+      {
+        "n": 100,
+        "estimate": 0.016982,
+        "se": 0.017524,
+        "null_mean": 0.008538,
+        "usable": -0.001542,
+        "source": "subsample",
+        "lower": -0.011843,
+        "threshold": 0.012537,
+        "resolved": false
+      },
+      {
+        "n": 150,
+        "estimate": 0.009461,
+        "se": 0.00917,
+        "null_mean": 0.007885,
+        "usable": -0.001802,
+        "source": "subsample",
+        "lower": -0.005622,
+        "threshold": 0.011884,
+        "resolved": false
+      },
+      {
+        "n": 200,
+        "estimate": 0.006659,
+        "se": 0.008138,
+        "null_mean": 0.002654,
+        "usable": -0.001173,
+        "source": "subsample",
+        "lower": -0.006727,
+        "threshold": 0.006653,
+        "resolved": false
+      },
+      {
+        "n": 250,
+        "estimate": 0.00623,
+        "se": 0.011382,
+        "null_mean": 0.002808,
+        "usable": -0.000982,
+        "source": "subsample",
+        "lower": -0.012492,
+        "threshold": 0.006807,
+        "resolved": false
+      },
+      {
+        "n": 300,
+        "estimate": 0.003134,
+        "se": 0.007158,
+        "null_mean": 0.002325,
+        "usable": -0.000897,
+        "source": "subsample",
+        "lower": -0.00864,
+        "threshold": 0.006324,
+        "resolved": false
+      },
+      {
+        "n": 400,
+        "estimate": 0.008206,
+        "se": 0.00919,
+        "null_mean": 0.001441,
+        "usable": -0.002016,
+        "source": "full cohort",
+        "lower": -0.00691,
+        "threshold": 0.005439,
+        "resolved": false
+      }
+    ]
+  },
+  "interpretation": "An unresolved record indicates insufficient evidence under the evaluated representation, patient budget and protocol; it is not evidence that the molecular information is absent."
+}

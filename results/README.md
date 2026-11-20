@@ -1,41 +1,25 @@
 # Results deposited with the manuscript
 
-Outputs of the study *Measuring molecular recoverability in pathology foundation models*
-(TCGA colorectal and prostate cohorts; UNI v2, Virchow2, H-optimus-1 and CONCH v1.5
-embeddings extracted with Trident at 20X). Estimates are in nats. Every file was produced by the
-scripts in this repository's pipeline; the merged tables are what the figures and the numbers in
-the paper are read from.
+These are the outputs of the study *Measuring molecular recoverability in pathology foundation models*. The study used the TCGA colorectal cohort (COAD + READ, state MSI) and the TCGA prostate cohort (PRAD, states ERG and ETS). The models were UNI v2, Virchow2, H-optimus-1 and CONCH v1.5, with embeddings extracted by Trident at 20X.
 
-## `tables/`
+The unit of analysis is the **patient**. A patient's slides are pooled separately, and the slide vectors are then averaged, giving 693 patients (727 slides). Every estimate is in nats.
 
-| File | Content |
+The folder holds summary tables only. It contains no tile embeddings, pooled embedding matrices, projected coordinates or model objects that could reconstruct them. The scripts that produced every file are in [`../study`](../study).
+
+| Folder | Content |
 |---|---|
-| `mi_summary_table.xlsx` | The 192-cell recoverability grid: state x model x pooling x projection, with the estimate, the permutation-null mean and s.d., the permutation p value and the condition number of the retained spectrum. |
-| `best_kpca_summary.xlsx` | The 48 selected projections (one per state, model and pooling) with the max-T p value. |
-| `incremental_mi_summary.xlsx` | Covariate-only, embedding-only and combined estimates and the incremental recoverability for the 48 selected configurations (base covariates: log tile count and stage or Gleason sum). |
-| `prad_incremental_batch_purity/` | Prostate refits with scanning batch and ABSOLUTE purity added to the covariate set (`prad_incremental_batch_purity.csv`, `covariate_only_fits.csv`, `run.log`). |
-| `sampling_burden.csv` | Plug-in estimate recomputed from m tiles per slide (m from 5 to 2500, 20 draws each) under the mean-pooling / linear-PCA arm of H-optimus-1. |
-| `simulation_results.rds` | The 72-cell x 50-replicate simulation comparing PathMI, LASSO-CV, OLS and the linear Donsker-Varadhan bound. |
-| `per_run/<cohort>_<model>/` | The per-run outputs of the pipeline for each cohort and model: `kpca_mi_summary_*.csv` (16 projections with nulls), `kpca_selected_decomposition_*.csv`, `best_kpca_mi_summary_*.csv`, `incremental_mi_*.csv` and the full result object `kpca_subho_results_*.rds` (fits, null draws, selected coordinates). |
+| `grid/` | `mi_summary_table.xlsx`: the 192-cell grid (state × model × pooling × projection), with the estimate, the permutation-null mean and s.d., the p value and the condition number. `best_kpca_summary.xlsx`: the 48 projections selected by max-T over a joint permutation. `incremental_mi_summary.xlsx`: covariate-only, embedding-only and combined estimates and the attributable (incremental) recoverability. `kpca_selected_decomposition.xlsx`: the selected decomposition per arm. |
+| `per_run/<cohort>_<model>/` | The per-run tables behind the grid. `kpca_mi_summary_*.csv` has the 16 projections with nulls, raw estimates, k* and cond(H). Alongside it are `best_kpca_mi_summary_*.csv`, `kpca_selected_decomposition_*.csv` and `incremental_mi_*.csv`. |
+| `record/` | The Recoverability Record: `recoverability_record.csv` and `recoverability_record.json` hold the 12 measurement arms plus the permuted-label negative control, and `json/` holds one file per Record. Each Record gives provenance, the estimate, null, ε_rep, half-sampling s.e. and 90 % interval, attributable and usable counterparts, tile burden, status and N_evidence. |
+| `usable/` | Usable recoverability for all 192 cells and the control. It comes from patient-held-out cross-fitting, with standardisation, projection and readout all fitted inside the training patients. The readouts are ridge and the PathMI readout; the fixed-projection and in-sample comparators are included. Per-repeat values and summary statistics are alongside. |
+| `learning/` | Patient-number learning curves for the 12 Record arms and the control. `learning_summary.csv` gives the estimate, null, usable value, finite-population s.e., lower bound, threshold and resolved flag at each n. `learning_draws.csv` has every subsample. `n_evidence.csv` gives N_evidence and the full-cohort status. |
+| `robustness/` | Half-sampling (`subsampling_*`, delete-d jackknife s.e. and 90 % interval). The bootstrap with replacement (`bootstrap_*`) is kept to show its upward bias. Also here: the retained-dimension sweep, the v_beta sweep, the size-prior chain, and contrasts in resolution units (`resolution_units.csv`). |
+| `burden/` | Tissue-sampling burden: N90/N95 per arm with bootstrap ranges, burden curves, the ordering across models, Kendall's W, and the H-optimus-1 linear-arm curve. |
+| `tile_maps/<cohort>/` | The tile-level decomposition of the H-optimus-1 mean-pooling / linear-PCA arm. `fit_summary_*.csv` gives the selected model, estimate and plug-in. `slide_summary_*.csv` has one row per slide (patient, label, fitted logit and probability, tile count, share of informative tiles). The log records the exact-identity checks. |
+| `simulation_context/` | The hidden-context simulation: Monte Carlo truths, replicate estimates, nulls and the summary at π_A = 1, 0.5, 0.25. |
+| `simulation_estimators/` | The 72-cell × 50-replicate comparison of PathMI, LASSO-CV, OLS and the linear Donsker–Varadhan bound on simulated data. |
+| `prad_batch_purity/` | Prostate refits with scanning batch and ABSOLUTE purity added to the covariates. |
 
-Model labels: `uni_v2`, `virchow2`, `hoptimus1`, `conch_v15`. Cohort labels: `crc` (COAD + READ,
-state MSI) and `prad` (TCGA-PRAD, states ERG and ETS).
+Model labels are `uni_v2`, `virchow2`, `hoptimus1` and `conch_v15`.
 
-## `tile_scores/`
-
-Tile-level decomposition of the H-optimus-1 mean-pooling / linear-PCA fit.
-
-| File | Content |
-|---|---|
-| `<cohort>/slide_summary_<cohort>_hoptimus1.csv` | One row per slide: label, fitted probability, posterior logit and its s.d., tile count, share of tiles called informative, per-patient difference-of-entropies term. |
-| `<cohort>/fit_summary_<cohort>_hoptimus1.csv` | Selected model size, estimate, plug-in estimate with its 90 percent posterior interval, null band used by the tile rule. |
-| `<cohort>/fits_<cohort>_hoptimus1.rds` | The refitted selected models (MAP coefficients, Hessian, projection parameters) needed to score new tiles. |
-| `<cohort>/tile_maps_<cohort>_hoptimus1.log` | Run log with the numerical checks (projection rebuilt to machine precision, slide logits reproduced from tile averages). |
-
-The per-tile score files, `tile_scores_crc_hoptimus1.rds` (4.78 million tiles, 173 MB) and
-`tile_scores_prad_hoptimus1.rds` (4.11 million tiles, 300 MB), exceed GitHub's file-size limit
-and are attached to the release **tile-scores-v1** of this repository:
-<https://github.com/sagnikbhadury/PathMI/releases/tag/tile-scores-v1>. Each is a data frame with
-one row per tile: slide, tile coordinates at level 0, the per-tile contribution g(z) to the slide
-logit, the specific information (posterior mean) and its 5 and 95 percent posterior quantiles for
-each state.
+The TCGA slides are public through the GDC. The embeddings are not distributed here; they can be regenerated with Trident ([`mahmoodlab/TRIDENT`](https://github.com/mahmoodlab/TRIDENT)) under each model's own licence.

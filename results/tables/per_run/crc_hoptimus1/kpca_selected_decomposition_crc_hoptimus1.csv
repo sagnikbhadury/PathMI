@@ -1,5 +1,0 @@
-"key","label","agg_method","MI_obs","eig_cond","p_maxT","n_candidates"
-"cosine_mean","Cosine kPCA / Mean","mean",0.135428595733459,58.0600484824939,0.00497512437810945,4
-"cosine_norm","Cosine kPCA / Norm","norm",0.132365857026732,57.6512667620427,0.00497512437810945,4
-"cosine_moment","Cosine kPCA / Moment","moment",0.142985436552074,108.377813894838,0.00497512437810945,4
-"cosine_attention","Cosine kPCA / Attention","attention",0.117644899847044,58.6133870287051,0.00497512437810945,4

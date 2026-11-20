@@ -1,0 +1,9 @@
+"key","label","agg_method","target","MI_obs","eig_cond","p_maxT","n_candidates"
+"cosine_attention","Cosine kPCA / Attention","attention","ERG",0.0535751079416074,59.0255281335284,0.00497512437810945,4
+"cosine_mean","Cosine kPCA / Mean","mean","ERG",0.0397469701679362,58.6837779541879,0.00497512437810945,4
+"cosine_moment","Cosine kPCA / Moment","moment","ERG",0.0683547864558498,68.3800449136211,0.00497512437810945,4
+"poly_norm","Poly kPCA / Norm","norm","ERG",0.0458970300258622,35.9370991434863,0.00497512437810945,4
+"pca_attention","Standard PCA / Attention","attention","ETS",0.0879838203127474,63.2783505560004,0.00497512437810945,4
+"cosine_mean","Cosine kPCA / Mean","mean","ETS",0.0846948788952448,58.6837779541879,0.00497512437810945,4
+"cosine_moment","Cosine kPCA / Moment","moment","ETS",0.088546479381459,68.3800449136211,0.00497512437810945,4
+"cosine_norm","Cosine kPCA / Norm","norm","ETS",0.0636274835626653,57.6534316850328,0.00497512437810945,4

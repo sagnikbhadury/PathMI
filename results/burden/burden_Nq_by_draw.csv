@@ -1,0 +1,241 @@
+"cohort","model","target","pair","draw","N90","N95"
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",1,20,20
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",2,40,75
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",3,30,30
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",4,15,15
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",5,10,20
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",6,20,20
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",7,15,15
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",8,20,25
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",9,20,75
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",10,15,15
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",11,25,25
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",12,40,40
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",13,50,75
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",14,25,25
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",15,25,40
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",16,30,30
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",17,10,10
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",18,20,50
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",19,30,30
+"CRC","CONCH v1.5","MSI","CONCH v1.5 / MSI",20,40,75
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",1,5,15
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",2,10,10
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",3,15,25
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",4,15,25
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",5,15,15
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",6,20,20
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",7,10,20
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",8,15,25
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",9,15,25
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",10,10,10
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",11,5,15
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",12,20,20
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",13,15,20
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",14,10,10
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",15,10,15
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",16,5,5
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",17,15,15
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",18,10,10
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",19,15,30
+"CRC","H-optimus-1","MSI","H-optimus-1 / MSI",20,15,15
+"CRC","UNI v2","MSI","UNI v2 / MSI",1,15,15
+"CRC","UNI v2","MSI","UNI v2 / MSI",2,15,30
+"CRC","UNI v2","MSI","UNI v2 / MSI",3,20,30
+"CRC","UNI v2","MSI","UNI v2 / MSI",4,10,15
+"CRC","UNI v2","MSI","UNI v2 / MSI",5,15,15
+"CRC","UNI v2","MSI","UNI v2 / MSI",6,20,20
+"CRC","UNI v2","MSI","UNI v2 / MSI",7,10,25
+"CRC","UNI v2","MSI","UNI v2 / MSI",8,15,15
+"CRC","UNI v2","MSI","UNI v2 / MSI",9,15,15
+"CRC","UNI v2","MSI","UNI v2 / MSI",10,10,25
+"CRC","UNI v2","MSI","UNI v2 / MSI",11,10,25
+"CRC","UNI v2","MSI","UNI v2 / MSI",12,15,15
+"CRC","UNI v2","MSI","UNI v2 / MSI",13,20,30
+"CRC","UNI v2","MSI","UNI v2 / MSI",14,15,15
+"CRC","UNI v2","MSI","UNI v2 / MSI",15,10,10
+"CRC","UNI v2","MSI","UNI v2 / MSI",16,10,20
+"CRC","UNI v2","MSI","UNI v2 / MSI",17,15,25
+"CRC","UNI v2","MSI","UNI v2 / MSI",18,15,15
+"CRC","UNI v2","MSI","UNI v2 / MSI",19,15,30
+"CRC","UNI v2","MSI","UNI v2 / MSI",20,15,20
+"CRC","Virchow2","MSI","Virchow2 / MSI",1,15,50
+"CRC","Virchow2","MSI","Virchow2 / MSI",2,25,30
+"CRC","Virchow2","MSI","Virchow2 / MSI",3,25,30
+"CRC","Virchow2","MSI","Virchow2 / MSI",4,15,40
+"CRC","Virchow2","MSI","Virchow2 / MSI",5,20,150
+"CRC","Virchow2","MSI","Virchow2 / MSI",6,25,25
+"CRC","Virchow2","MSI","Virchow2 / MSI",7,30,75
+"CRC","Virchow2","MSI","Virchow2 / MSI",8,20,50
+"CRC","Virchow2","MSI","Virchow2 / MSI",9,25,40
+"CRC","Virchow2","MSI","Virchow2 / MSI",10,20,30
+"CRC","Virchow2","MSI","Virchow2 / MSI",11,20,50
+"CRC","Virchow2","MSI","Virchow2 / MSI",12,30,40
+"CRC","Virchow2","MSI","Virchow2 / MSI",13,30,40
+"CRC","Virchow2","MSI","Virchow2 / MSI",14,20,30
+"CRC","Virchow2","MSI","Virchow2 / MSI",15,25,30
+"CRC","Virchow2","MSI","Virchow2 / MSI",16,20,30
+"CRC","Virchow2","MSI","Virchow2 / MSI",17,15,20
+"CRC","Virchow2","MSI","Virchow2 / MSI",18,25,30
+"CRC","Virchow2","MSI","Virchow2 / MSI",19,20,30
+"CRC","Virchow2","MSI","Virchow2 / MSI",20,15,50
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",1,40,40
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",2,20,20
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",3,5,5
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",4,10,10
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",5,25,25
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",6,25,25
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",7,20,20
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",8,5,5
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",9,20,20
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",10,20,20
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",11,10,10
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",12,15,15
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",13,20,20
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",14,15,15
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",15,20,20
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",16,10,10
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",17,10,10
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",18,75,75
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",19,15,15
+"PRAD","CONCH v1.5","ERG","CONCH v1.5 / ERG",20,100,100
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",1,10,10
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",2,25,25
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",3,15,15
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",4,10,50
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",5,75,100
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",6,25,25
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",7,15,15
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",8,10,10
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",9,20,20
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",10,20,20
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",11,25,25
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",12,15,15
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",13,20,20
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",14,25,25
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",15,25,50
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",16,15,15
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",17,20,20
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",18,15,15
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",19,15,15
+"PRAD","CONCH v1.5","ETS","CONCH v1.5 / ETS",20,50,100
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",1,15,40
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",2,40,100
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",3,15,30
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",4,20,20
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",5,10,10
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",6,20,25
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",7,50,50
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",8,25,40
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",9,10,10
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",10,25,25
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",11,20,20
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",12,75,75
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",13,10,10
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",14,75,100
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",15,40,40
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",16,20,20
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",17,25,25
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",18,25,25
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",19,20,20
+"PRAD","H-optimus-1","ERG","H-optimus-1 / ERG",20,20,20
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",1,10,40
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",2,40,100
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",3,30,40
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",4,15,20
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",5,15,20
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",6,25,25
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",7,25,25
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",8,25,25
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",9,30,30
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",10,25,25
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",11,20,20
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",12,5,15
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",13,10,10
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",14,75,75
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",15,25,25
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",16,20,20
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",17,20,20
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",18,25,40
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",19,20,75
+"PRAD","H-optimus-1","ETS","H-optimus-1 / ETS",20,15,15
+"PRAD","UNI v2","ERG","UNI v2 / ERG",1,5,5
+"PRAD","UNI v2","ERG","UNI v2 / ERG",2,15,15
+"PRAD","UNI v2","ERG","UNI v2 / ERG",3,5,5
+"PRAD","UNI v2","ERG","UNI v2 / ERG",4,10,10
+"PRAD","UNI v2","ERG","UNI v2 / ERG",5,5,5
+"PRAD","UNI v2","ERG","UNI v2 / ERG",6,10,10
+"PRAD","UNI v2","ERG","UNI v2 / ERG",7,5,10
+"PRAD","UNI v2","ERG","UNI v2 / ERG",8,5,5
+"PRAD","UNI v2","ERG","UNI v2 / ERG",9,5,5
+"PRAD","UNI v2","ERG","UNI v2 / ERG",10,15,15
+"PRAD","UNI v2","ERG","UNI v2 / ERG",11,10,20
+"PRAD","UNI v2","ERG","UNI v2 / ERG",12,20,20
+"PRAD","UNI v2","ERG","UNI v2 / ERG",13,20,20
+"PRAD","UNI v2","ERG","UNI v2 / ERG",14,10,10
+"PRAD","UNI v2","ERG","UNI v2 / ERG",15,15,20
+"PRAD","UNI v2","ERG","UNI v2 / ERG",16,10,10
+"PRAD","UNI v2","ERG","UNI v2 / ERG",17,10,10
+"PRAD","UNI v2","ERG","UNI v2 / ERG",18,10,10
+"PRAD","UNI v2","ERG","UNI v2 / ERG",19,5,20
+"PRAD","UNI v2","ERG","UNI v2 / ERG",20,5,5
+"PRAD","UNI v2","ETS","UNI v2 / ETS",1,5,10
+"PRAD","UNI v2","ETS","UNI v2 / ETS",2,20,40
+"PRAD","UNI v2","ETS","UNI v2 / ETS",3,25,25
+"PRAD","UNI v2","ETS","UNI v2 / ETS",4,25,25
+"PRAD","UNI v2","ETS","UNI v2 / ETS",5,10,10
+"PRAD","UNI v2","ETS","UNI v2 / ETS",6,30,40
+"PRAD","UNI v2","ETS","UNI v2 / ETS",7,15,50
+"PRAD","UNI v2","ETS","UNI v2 / ETS",8,20,20
+"PRAD","UNI v2","ETS","UNI v2 / ETS",9,50,75
+"PRAD","UNI v2","ETS","UNI v2 / ETS",10,15,15
+"PRAD","UNI v2","ETS","UNI v2 / ETS",11,20,20
+"PRAD","UNI v2","ETS","UNI v2 / ETS",12,15,15
+"PRAD","UNI v2","ETS","UNI v2 / ETS",13,20,30
+"PRAD","UNI v2","ETS","UNI v2 / ETS",14,5,5
+"PRAD","UNI v2","ETS","UNI v2 / ETS",15,15,20
+"PRAD","UNI v2","ETS","UNI v2 / ETS",16,20,25
+"PRAD","UNI v2","ETS","UNI v2 / ETS",17,15,15
+"PRAD","UNI v2","ETS","UNI v2 / ETS",18,20,20
+"PRAD","UNI v2","ETS","UNI v2 / ETS",19,30,100
+"PRAD","UNI v2","ETS","UNI v2 / ETS",20,15,15
+"PRAD","Virchow2","ERG","Virchow2 / ERG",1,5,50
+"PRAD","Virchow2","ERG","Virchow2 / ERG",2,20,20
+"PRAD","Virchow2","ERG","Virchow2 / ERG",3,40,75
+"PRAD","Virchow2","ERG","Virchow2 / ERG",4,25,25
+"PRAD","Virchow2","ERG","Virchow2 / ERG",5,10,10
+"PRAD","Virchow2","ERG","Virchow2 / ERG",6,50,75
+"PRAD","Virchow2","ERG","Virchow2 / ERG",7,25,30
+"PRAD","Virchow2","ERG","Virchow2 / ERG",8,40,150
+"PRAD","Virchow2","ERG","Virchow2 / ERG",9,20,20
+"PRAD","Virchow2","ERG","Virchow2 / ERG",10,15,15
+"PRAD","Virchow2","ERG","Virchow2 / ERG",11,20,30
+"PRAD","Virchow2","ERG","Virchow2 / ERG",12,10,10
+"PRAD","Virchow2","ERG","Virchow2 / ERG",13,10,10
+"PRAD","Virchow2","ERG","Virchow2 / ERG",14,5,50
+"PRAD","Virchow2","ERG","Virchow2 / ERG",15,10,20
+"PRAD","Virchow2","ERG","Virchow2 / ERG",16,20,20
+"PRAD","Virchow2","ERG","Virchow2 / ERG",17,20,20
+"PRAD","Virchow2","ERG","Virchow2 / ERG",18,30,30
+"PRAD","Virchow2","ERG","Virchow2 / ERG",19,5,30
+"PRAD","Virchow2","ERG","Virchow2 / ERG",20,20,20
+"PRAD","Virchow2","ETS","Virchow2 / ETS",1,40,40
+"PRAD","Virchow2","ETS","Virchow2 / ETS",2,30,30
+"PRAD","Virchow2","ETS","Virchow2 / ETS",3,40,200
+"PRAD","Virchow2","ETS","Virchow2 / ETS",4,15,15
+"PRAD","Virchow2","ETS","Virchow2 / ETS",5,15,15
+"PRAD","Virchow2","ETS","Virchow2 / ETS",6,20,20
+"PRAD","Virchow2","ETS","Virchow2 / ETS",7,30,30
+"PRAD","Virchow2","ETS","Virchow2 / ETS",8,20,75
+"PRAD","Virchow2","ETS","Virchow2 / ETS",9,20,30
+"PRAD","Virchow2","ETS","Virchow2 / ETS",10,20,20
+"PRAD","Virchow2","ETS","Virchow2 / ETS",11,20,75
+"PRAD","Virchow2","ETS","Virchow2 / ETS",12,15,15
+"PRAD","Virchow2","ETS","Virchow2 / ETS",13,10,10
+"PRAD","Virchow2","ETS","Virchow2 / ETS",14,50,300
+"PRAD","Virchow2","ETS","Virchow2 / ETS",15,25,40
+"PRAD","Virchow2","ETS","Virchow2 / ETS",16,20,20
+"PRAD","Virchow2","ETS","Virchow2 / ETS",17,20,20
+"PRAD","Virchow2","ETS","Virchow2 / ETS",18,30,40
+"PRAD","Virchow2","ETS","Virchow2 / ETS",19,40,75
+"PRAD","Virchow2","ETS","Virchow2 / ETS",20,50,75

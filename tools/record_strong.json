@@ -1,0 +1,114 @@
+{
+  "schema": "pathmi.recoverability_record/1.0",
+  "provenance": {
+    "cohort": "simulated strong",
+    "model": "simulated encoder (D = 64)",
+    "pooling": "mean",
+    "projection": "poly",
+    "d": 20,
+    "unit": "patient"
+  },
+  "measurement": {
+    "n": 400,
+    "label_entropy": 0.630581,
+    "represented": 0.051585,
+    "share_of_entropy": 0.081805,
+    "k": 6,
+    "null_mean": 0.001715,
+    "null_sd": 0.002888,
+    "permutation_p": 0.009901,
+    "epsilon_rep": 0.003999,
+    "se": 0.023561,
+    "ci90": [0.012829, 0.09034],
+    "attributable": 0.060529,
+    "usable": 0.04451,
+    "usable_auc": 0.677219,
+    "tile_burden": [15, 30]
+  },
+  "evidence": {
+    "status": "resolved",
+    "threshold": 0.005713,
+    "lower_bound_90": 0.012829,
+    "N_evidence": 400,
+    "learning_curve": [
+      {
+        "n": 50,
+        "estimate": 0.033933,
+        "se": 0.033804,
+        "null_mean": 0.021543,
+        "usable": 0.002695,
+        "source": "subsample",
+        "lower": -0.02167,
+        "threshold": 0.025541,
+        "resolved": false
+      },
+      {
+        "n": 100,
+        "estimate": 0.028804,
+        "se": 0.028318,
+        "null_mean": 0.013541,
+        "usable": 0.010626,
+        "source": "subsample",
+        "lower": -0.017776,
+        "threshold": 0.017539,
+        "resolved": false
+      },
+      {
+        "n": 150,
+        "estimate": 0.02982,
+        "se": 0.031782,
+        "null_mean": 0.00603,
+        "usable": 0.02003,
+        "source": "subsample",
+        "lower": -0.022456,
+        "threshold": 0.010029,
+        "resolved": false
+      },
+      {
+        "n": 200,
+        "estimate": 0.035662,
+        "se": 0.034778,
+        "null_mean": 0.004065,
+        "usable": 0.028409,
+        "source": "subsample",
+        "lower": -0.021543,
+        "threshold": 0.008064,
+        "resolved": false
+      },
+      {
+        "n": 250,
+        "estimate": 0.036901,
+        "se": 0.033799,
+        "null_mean": 0.002191,
+        "usable": 0.030395,
+        "source": "subsample",
+        "lower": -0.018693,
+        "threshold": 0.00619,
+        "resolved": false
+      },
+      {
+        "n": 300,
+        "estimate": 0.044196,
+        "se": 0.040077,
+        "null_mean": 0.002031,
+        "usable": 0.039503,
+        "source": "subsample",
+        "lower": -0.021724,
+        "threshold": 0.00603,
+        "resolved": false
+      },
+      {
+        "n": 400,
+        "estimate": 0.051585,
+        "se": 0.023561,
+        "null_mean": 0.001715,
+        "usable": 0.04451,
+        "source": "full cohort",
+        "lower": 0.012829,
+        "threshold": 0.005713,
+        "resolved": true
+      }
+    ]
+  },
+  "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+}

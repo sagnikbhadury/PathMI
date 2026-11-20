@@ -1,0 +1,5 @@
+"key","label","agg_method","MI_obs","eig_cond","p_maxT","n_candidates"
+"pca_attention","Standard PCA / Attention","attention",0.115947467505323,134.064816506003,0.00497512437810945,4
+"pca_mean","Standard PCA / Mean","mean",0.118352985782462,136.68491733991,0.00497512437810945,4
+"pca_moment","Standard PCA / Moment","moment",0.117015323301187,141.862549194754,0.00497512437810945,4
+"pca_norm","Standard PCA / Norm","norm",0.11797646501311,138.432029686176,0.00497512437810945,4

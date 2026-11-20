@@ -1,0 +1,106 @@
+{
+  "schema": "pathmi.recoverability_record/1.0",
+  "record_type": "measurement",
+  "provenance": {
+    "model": "Virchow2",
+    "trident_feature_key": "virchow2",
+    "embedding_width": 2560,
+    "tile_px_at_20x": 224,
+    "magnification": "20x, ~0.5 um/px",
+    "cohort": "TCGA-PRAD",
+    "state": "ERG",
+    "projection": "cosine",
+    "retained_dimension": 50,
+    "pooling": "moment",
+    "covariates": "size, Gleason, batch, purity",
+    "roster_n": 271,
+    "prevalence": 0.4797
+  },
+  "protocol": {
+    "estimator": "PathMI (horseshoe ranking, Laplace marginal-likelihood walk, log Bayes factor per patient), v_beta = 1, 2000 Gibbs iterations, 500 burn-in, thin 10",
+    "null": "200 label permutations, whole estimator refitted",
+    "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
+    "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
+    "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+    "units": "nats"
+  },
+  "measurement": {
+    "label_entropy": 0.6923,
+    "represented": 0.042,
+    "share_of_entropy": 0.061,
+    "null_mean": 0.0043,
+    "null_sd": 0.0057,
+    "permutation_p": 0.01,
+    "epsilon_rep": 0.0163,
+    "se": 0.0241,
+    "ci90": [0.0025, 0.0816],
+    "attributable": 0.0401,
+    "covariate_only": 0.0019,
+    "usable": 0.0599,
+    "usable_sd": 0.0045,
+    "usable_auc": 0.698,
+    "tile_burden": {
+      "N90": 50,
+      "N90_interval": [20, 50],
+      "N95": 50,
+      "N95_interval": [30, 100]
+    }
+  },
+  "evidence": {
+    "status": "unresolved",
+    "lower_bound_90": 0.0025,
+    "threshold": 0.0206,
+    "N_evidence": "not resolved at available n",
+    "learning_curve": [
+      {
+        "n": 50,
+        "represented_mean": 0.0565,
+        "se": 0.0495,
+        "null_mean": 0.0473,
+        "usable_mean": 0.0057,
+        "resolved": false
+      },
+      {
+        "n": 100,
+        "represented_mean": 0.0389,
+        "se": 0.0403,
+        "null_mean": 0.0155,
+        "usable_mean": 0.0163,
+        "resolved": false
+      },
+      {
+        "n": 135,
+        "represented_mean": 0.0331,
+        "se": 0.0379,
+        "null_mean": 0.0109,
+        "usable_mean": 0.0381,
+        "resolved": false
+      },
+      {
+        "n": 150,
+        "represented_mean": 0.0311,
+        "se": 0.0287,
+        "null_mean": 0.0088,
+        "usable_mean": 0.0398,
+        "resolved": false
+      },
+      {
+        "n": 200,
+        "represented_mean": 0.0362,
+        "se": 0.039,
+        "null_mean": 0.0041,
+        "usable_mean": 0.0519,
+        "resolved": false
+      },
+      {
+        "n": 271,
+        "represented_mean": 0.042,
+        "se": 0.0241,
+        "null_mean": 0.0043,
+        "usable_mean": 0.0599,
+        "resolved": false
+      }
+    ]
+  },
+  "interpretation": "An unresolved record indicates insufficient evidence under the evaluated representation, patient budget and protocol; it is not evidence that molecular information is universally absent."
+}
