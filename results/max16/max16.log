@@ -1,0 +1,13 @@
+[crc_uni_v2 MSI] n 420 | 16 configs | winner rbf_attention T_obs 0.1018 | null max-16 mean 0.0073 q95 0.0138 max 0.0179 | p_max16 0.0050 (filtered 16: 0.0050) | A1 TRUE A2 TRUE | cor matched 0.21 shuffled -0.01 
+[crc_virchow2 MSI] n 421 | 16 configs | winner pca_mean T_obs 0.1184 | null max-16 mean 0.0070 q95 0.0137 max 0.0205 | p_max16 0.0050 (filtered 16: 0.0050) | A1 TRUE A2 TRUE | cor matched 0.28 shuffled -0.01 
+[crc_hoptimus1 MSI] n 420 | 16 configs | winner rbf_mean T_obs 0.1178 | null max-16 mean 0.0076 q95 0.0151 max 0.0237 | p_max16 0.0050 (filtered 16: 0.0050) | A1 TRUE A2 TRUE | cor matched 0.37 shuffled 0.01 
+[crc_conch_v15 MSI] n 408 | 16 configs | winner rbf_norm T_obs 0.0944 | null max-16 mean 0.0070 q95 0.0141 max 0.0250 | p_max16 0.0050 (filtered 16: 0.0050) | A1 TRUE A2 TRUE | cor matched 0.21 shuffled -0.01 
+[prad_uni_v2 ERG] n 272 | 16 configs | winner cosine_moment T_obs 0.0684 | null max-16 mean 0.0114 q95 0.0221 max 0.0328 | p_max16 0.0050 (filtered 16: 0.0050) | A1 TRUE A2 TRUE | cor matched 0.23 shuffled -0.01 
+[prad_uni_v2 ETS] n 272 | 16 configs | winner cosine_moment T_obs 0.0885 | null max-16 mean 0.0114 q95 0.0254 max 0.0344 | p_max16 0.0050 (filtered 16: 0.0050) | A1 TRUE A2 TRUE | cor matched 0.27 shuffled -0.00 
+[prad_virchow2 ERG] n 271 | 16 configs | winner cosine_moment T_obs 0.0420 | null max-16 mean 0.0123 q95 0.0252 max 0.0495 | p_max16 0.0149 (filtered 16: 0.0149) | A1 TRUE A2 TRUE | cor matched 0.33 shuffled 0.00 
+[prad_virchow2 ETS] n 271 | 16 configs | winner cosine_norm T_obs 0.0906 | null max-16 mean 0.0121 q95 0.0264 max 0.0420 | p_max16 0.0050 (filtered 16: 0.0050) | A1 TRUE A2 TRUE | cor matched 0.29 shuffled 0.00 
+[prad_hoptimus1 ERG] n 272 | 16 configs | winner cosine_moment T_obs 0.0842 | null max-16 mean 0.0115 q95 0.0233 max 0.0397 | p_max16 0.0050 (filtered 16: 0.0050) | A1 TRUE A2 TRUE | cor matched 0.27 shuffled 0.01 
+[prad_hoptimus1 ETS] n 272 | 16 configs | winner cosine_moment T_obs 0.1503 | null max-16 mean 0.0108 q95 0.0216 max 0.0268 | p_max16 0.0050 (filtered 16: 0.0050) | A1 TRUE A2 TRUE | cor matched 0.29 shuffled -0.01 
+[prad_conch_v15 ERG] n 271 | 16 configs | winner cosine_mean T_obs 0.0266 | null max-16 mean 0.0114 q95 0.0221 max 0.0309 | p_max16 0.0398 (filtered 16: 0.0398) | A1 TRUE A2 TRUE | cor matched 0.21 shuffled -0.02 
+[prad_conch_v15 ETS] n 271 | 16 configs | winner cosine_mean T_obs 0.0825 | null max-16 mean 0.0122 q95 0.0241 max 0.0426 | p_max16 0.0050 (filtered 16: 0.0050) | A1 TRUE A2 TRUE | cor matched 0.24 shuffled 0.01 
+A3 exact refits: 48 fits | max |refit - stored| = 0 | all < 1e-10: TRUE 

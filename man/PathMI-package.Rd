@@ -15,8 +15,9 @@ Record:
 2. **Estimate.** [pathmi_fit()] (the estimator; engine [subho_MI_logistic()]).
 3. **Inference.** [draw_permutations()], [pathmi_null()],
    [select_representation()] (max-T), [half_sampling()],
-   [replicate_refit()], [sign_flip_refit()], [reproducibility_bound()].
-4. **Counterparts.** [incremental_recoverability()] (attributable),
+   [replicate_refit()], [sign_flip_refit()], [numerical_tolerance()],
+   [verify_permutation_alignment()].
+4. **Counterparts.** [incremental_recoverability()] (incremental beyond covariates),
    [usable_recoverability()] (patient-held-out).
 5. **Evidence.** [learning_curve()], [evidence_status()].
 6. **Tiles.** [tile_decomposition()], [tissue_burden()].

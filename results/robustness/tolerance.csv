@@ -1,0 +1,3 @@
+"group","eps_tol","identity_at_max","cell_at_max","n_checks","exact","models","eps_tol_rounded"
+"CONCH v1.5",0.0214672275791078,"sign-flip refit","CRC|conch_v15|MSI|poly_mean",60,57,"CONCH v1.5",0.0215
+"vision-only",0.01633883591548,"sign-flip refit","CRC|hoptimus1|MSI|poly_attention",180,160,"UNI v2, Virchow2, H-optimus-1",0.0163

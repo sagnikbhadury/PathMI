@@ -9,11 +9,14 @@ recoverability_record(
   fit,
   null,
   uncertainty,
-  eps_rep,
-  attributable = NULL,
+  eps_tol,
+  incremental = NULL,
   usable = NULL,
   burden = NULL,
-  curve = NULL
+  curve = NULL,
+  selection = NULL,
+  attributable = NULL,
+  eps_rep = NULL
 )
 }
 \arguments{
@@ -26,21 +29,33 @@ pooling, covariates, ...).}
 
 \item{uncertainty}{a [half_sampling()] result.}
 
-\item{eps_rep}{reproducibility bound.}
+\item{eps_tol}{numerical tolerance ([numerical_tolerance()]).}
 
-\item{attributable}{optional [incremental_recoverability()] result.}
+\item{incremental}{optional [incremental_recoverability()] result
+(incremental recoverability beyond measured covariates).}
 
 \item{usable}{optional [usable_recoverability()] result.}
 
-\item{burden}{optional [tissue_burden()] result.}
+\item{burden}{optional [tissue_burden()] result (of the fixed linear readout).}
 
 \item{curve}{optional [learning_curve()] result.}
+
+\item{selection}{optional [select_representation()] result over the
+configurations the recorded one was chosen from; its `p_maxT` is stored
+as the configuration-selection p value.}
+
+\item{attributable, eps_rep}{deprecated names of `incremental` and `eps_tol`.}
 }
 \value{
 an object of class `recoverability_record`.
 }
 \description{
-Collects the measurement with its provenance, protocol, null, resolution,
-uncertainty, attributable and usable counterparts, burdens and evidence
-status, so that a model and a state are compared as measurements.
+Collects the measurement with its provenance, protocol, null, numerical
+tolerance, uncertainty, incremental and usable counterparts, burdens and
+evidence status, so that a model and a state are compared as measurements.
+Each record also lists the interpretations the evaluated protocol supports
+and those the evidence does not establish (external generalizability,
+spatial molecular fidelity, causal mechanism, clinical utility, absence of
+residual confounding, independence from pretraining data, a lower bound on
+population mutual information, subgroup recoverability).
 }

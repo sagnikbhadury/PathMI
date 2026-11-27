@@ -1,7 +1,7 @@
 ## Inference around the PathMI estimate: the estimate itself, a permutation
 ## null with full refitting, max-T selection of a representation over a joint
 ## permutation, patient-level uncertainty by half-sampling (delete-d
-## jackknife), and the reproducibility bound.
+## jackknife), and the empirical numerical tolerance.
 
 #' PathMI estimate of recoverability
 #'
@@ -54,7 +54,9 @@ draw_permutations <- function(n, B = 200L, seed = 42L) { set.seed(seed); sapply(
 #' @param cores number of parallel workers (`parallel::mclapply` on Unix,
 #'   a PSOCK cluster on Windows).
 #' @return a list with `null` (vector of permuted estimates), `mean`, `sd`,
-#'   `p_value` and the observed fit.
+#'   `p_value`, the observed fit, the permutation matrix `perms` and the fit
+#'   `settings` (used by [select_representation()] and
+#'   [verify_permutation_alignment()]).
 #' @export
 pathmi_null <- function(Z, y, perms = draw_permutations(length(y)), observed = NULL, cores = 1L, v_beta = 1, nmc = 2000L, burn = 500L, thin = 10L) {
   Z <- as.matrix(Z); y <- as.numeric(y); force(perms); force(v_beta); force(nmc); force(burn); force(thin)
@@ -62,20 +64,63 @@ pathmi_null <- function(Z, y, perms = draw_permutations(length(y)), observed = N
   one <- function(b) pathmi_fit(Z, y[perms[, b]], v_beta, nmc, burn, thin, seed = 100000L + b)$estimate
   nul <- unlist(par_apply(seq_len(ncol(perms)), one, cores))
   structure(list(observed = observed, null = nul, mean = mean(nul), sd = stats::sd(nul),
-                 p_value = (1 + sum(nul >= observed$estimate)) / (1 + length(nul))), class = "pathmi_null")
+                 p_value = (1 + sum(nul >= observed$estimate)) / (1 + length(nul)), perms = perms,
+                 settings = list(v_beta = v_beta, nmc = nmc, burn = burn, thin = thin)), class = "pathmi_null")
 }
 
 #' Select a representation with a max-T test
 #'
+#' Takes the candidate with the largest estimate and tests it against the
+#' maximum over all candidates under each permutation,
+#' \eqn{p = (1 + \#\{b : \max_c \hat I_{b,c} \ge \max_c \hat I_c\}) / (1 + B)}.
+#' The candidates can be the four projections of one pooling rule (as in the
+#' paper's projection selection) or all sixteen pooling x projection
+#' configurations of a model and state (the paper's \eqn{p_{\max 16}}). The test
+#' is valid only when every candidate was refitted on the same permuted labels,
+#' which is checked. It adjusts detection within the set of candidates; it does
+#' not adjust across separate sets and does not correct the magnitude of the
+#' selected estimate.
+#'
 #' @param nulls named list of [pathmi_null()] results computed with the same
 #'   permutation matrix.
-#' @return a list with the selected name, its estimate and the max-T p value,
-#'   which controls the familywise error over the candidates.
+#' @param check logical; stop if the stored permutation matrices differ.
+#' @return a list with the selected name, its estimate, all estimates, the
+#'   max-T p value `p_maxT`, the number of candidates and the null maxima `T_null`.
 #' @export
-select_representation <- function(nulls) {
+select_representation <- function(nulls, check = TRUE) {
+  if (is.null(names(nulls)) || any(names(nulls) == "")) names(nulls) <- paste0("candidate", seq_along(nulls))
+  if (check) {
+    pm <- lapply(nulls, `[[`, "perms")
+    if (any(vapply(pm, is.null, logical(1))) || !all(vapply(pm, identical, logical(1), pm[[1]])))
+      stop("the candidates were not refitted on the same permuted labels; pass one draw_permutations() matrix to every pathmi_null()")
+  }
   est <- vapply(nulls, function(x) x$observed$estimate, numeric(1)); best <- names(which.max(est))
   Tn <- apply(do.call(cbind, lapply(nulls, `[[`, "null")), 1, max)
-  list(selected = best, estimate = est[[best]], estimates = est, p_maxT = (1 + sum(Tn >= est[[best]])) / (1 + length(Tn)))
+  list(selected = best, estimate = est[[best]], estimates = est, p_maxT = (1 + sum(Tn >= est[[best]])) / (1 + length(Tn)),
+       n_candidates = length(nulls), T_null = Tn)
+}
+
+#' Verify that permuted fits used the stored permutations
+#'
+#' Refits the estimator on a few permutations of the stored matrix, with the
+#' seed [pathmi_null()] used for each, and compares the result with the stored
+#' permuted estimate. Exact agreement shows that the stored null of every
+#' checked candidate was computed on exactly these labels, so that a max-T test
+#' over the candidates is a joint permutation test.
+#'
+#' @param nulls named list of [pathmi_null()] results.
+#' @param Zs named list of the corresponding representations.
+#' @param y labels.
+#' @param b permutation indices to refit.
+#' @return a data frame with the candidate, `b`, the stored and refitted
+#'   estimates and their absolute difference.
+#' @export
+verify_permutation_alignment <- function(nulls, Zs, y, b = c(1L, 2L)) {
+  y <- as.numeric(y)
+  do.call(rbind, lapply(names(nulls), function(k) { nl <- nulls[[k]]; st <- nl$settings
+    do.call(rbind, lapply(b, function(bb) {
+      r <- pathmi_fit(Zs[[k]], y[nl$perms[, bb]], st$v_beta, st$nmc, st$burn, st$thin, seed = 100000L + bb)$estimate
+      data.frame(candidate = k, b = bb, stored = nl$null[bb], refit = r, abs_diff = abs(r - nl$null[bb])) })) }))
 }
 
 #' Patient-level uncertainty by half-sampling
@@ -101,32 +146,63 @@ half_sampling <- function(Z, y, B = 200L, level = 0.90, cores = 1L, seed = 777L,
   list(estimate = fit$estimate, se = se, interval = c(max(fit$estimate - z * se, 0), fit$estimate + z * se), draws = dr, m = m)
 }
 
-#' Reproducibility bound from quantities required to be identical
+#' Empirical numerical tolerance of the protocol
 #'
-#' The bound is the largest discrepancy among quantities the design requires to
-#' be identical, for example (i) a replicate refit with an independent
-#' random-number stream, (ii) the estimate after adding a covariate block that
-#' carries no information, and (iii) a refit after the projection is recomputed
-#' by an independent routine (coordinate signs may flip). It therefore includes
-#' the Monte Carlo error of the sampler. Contrasts are reported in units of this
-#' bound.
+#' The tolerance \eqn{\epsilon_{tol}} is the largest discrepancy between an
+#' original fit and refits that should return the same estimate: a replicate
+#' refit with an independent random-number stream ([replicate_refit()]) and a
+#' refit of an equivalent representation ([sign_flip_refit()]). It therefore
+#' includes the Monte Carlo error of the sampler. Contrasts are reported in
+#' units of it, and a record is resolved when its lower bound exceeds the null
+#' plus the tolerance ([evidence_status()]).
 #'
-#' @param ... numeric vectors of discrepancies (nats), one per identity.
-#' @return a list with the `bound`, the 95th percentile and per-identity maxima.
+#' A refit after adding a covariate block that carries no information
+#' ([null_block_refit()]) changes the model. It is a sensitivity to model
+#' specification, is passed as `specification` and is reported separately,
+#' outside the tolerance. The tolerance is empirical and protocol-specific: it
+#' is not a universal error bound, and it does not cover fits that are unstable
+#' across chain seeds, which should be flagged separately. Compute it per model
+#' group when the groups differ (in the paper, 0.0163 nats for three
+#' vision-only models and 0.0215 for CONCH v1.5).
+#'
+#' @param ... numeric vectors of discrepancies (nats), one per numerical identity.
+#' @param specification optional numeric vector of discrepancies from a
+#'   specification check (reported, not included).
+#' @return a list with the `tolerance` (also as `bound`), its 95th percentile,
+#'   per-identity maxima, counts of exact agreements, and the `specification`
+#'   summary.
 #' @export
-reproducibility_bound <- function(...) {
-  ids <- list(...); all <- abs(unlist(ids))
-  list(bound = max(all), q95 = unname(stats::quantile(all, 0.95)), per_identity = vapply(ids, function(d) max(abs(d)), numeric(1)),
-       exact = vapply(ids, function(d) sum(abs(d) < 1e-9), numeric(1)), n = lengths(ids))
+numerical_tolerance <- function(..., specification = NULL) {
+  ids <- list(...); if (!length(ids)) stop("give at least one numerical identity")
+  all <- abs(unlist(ids)); tol <- max(all)
+  spec <- if (is.null(specification)) NULL else list(max = max(abs(specification)), exact = sum(abs(specification) < 1e-9), n = length(specification))
+  list(tolerance = tol, bound = tol, q95 = unname(stats::quantile(all, 0.95)), per_identity = vapply(ids, function(d) max(abs(d)), numeric(1)),
+       exact = vapply(ids, function(d) sum(abs(d) < 1e-9), numeric(1)), n = lengths(ids), specification = spec)
 }
 
-#' Identity checks for the reproducibility bound
+#' Reproducibility bound (deprecated)
+#'
+#' Superseded by [numerical_tolerance()]. An argument named `null_block` or
+#' `specification` is treated as a specification check and kept out of the
+#' tolerance; every other argument is a numerical identity.
+#' @param ... numeric vectors of discrepancies.
+#' @return as [numerical_tolerance()].
+#' @export
+reproducibility_bound <- function(...) {
+  ids <- list(...); nm <- names(ids); if (is.null(nm)) nm <- rep("", length(ids))
+  spec <- nm %in% c("null_block", "specification")
+  do.call(numerical_tolerance, c(ids[!spec], list(specification = if (any(spec)) unlist(ids[spec]) else NULL)))
+}
+
+#' Refit checks for the numerical tolerance
 #'
 #' `replicate_refit()` refits with an independent seed; `sign_flip_refit()`
 #' flips the sign of every other coordinate (an equivalent representation) and
-#' refits; `null_block_refit()` appends `q` columns drawn independently of the
-#' label, which carry no information, and refits. Each returns the discrepancy
-#' from the original estimate.
+#' refits. These two are numerical identities and define
+#' [numerical_tolerance()]. `null_block_refit()` appends `q` columns drawn
+#' independently of the label, which carry no information, and refits; it
+#' changes the model and is a specification check, reported separately. Each
+#' returns the discrepancy from the original estimate.
 #' @inheritParams pathmi_fit
 #' @param fit the original [pathmi_fit()].
 #' @param ... passed to [pathmi_fit()].

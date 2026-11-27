@@ -83,7 +83,7 @@ p2b <- ggplot(crc_long, aes(x = mi, y = row, fill = part)) +
 d1 <- inc %>%
   inner_join(best %>% select(Disease, bb, target, agg_method, MI_obs), by = c("Disease", "bb", "target", "agg_method")) %>%
   transmute(task, bb, pooling, d = emb_only - MI_obs, src = "Replicate refit (48)")
-d2 <- inc %>% filter(covar_only == 0) %>% transmute(task, bb, pooling, d = combined - emb_only, src = "Null covariate block (PRAD, 32)")
+d2 <- inc %>% filter(covar_only == 0) %>% transmute(task, bb, pooling, d = combined - emb_only, src = "Specification: null\ncovariate block (PRAD, 32)")   # 27 Nov 2026: sensitivity to model specification, not in the tolerance
 stopifnot(nrow(d1) == 48, nrow(d2) == 32)
 # 20 Nov 2026 (patient-level rerun): third identity, the full-data refit of every cell after the projection is
 # recomputed by an independent routine (column signs may flip), from usable/usable_infold.csv (rep 0)
@@ -91,7 +91,9 @@ uf <- read.csv(file.path(TAB_DIR, "usable", "usable_infold.csv"), stringsAsFacto
 d3 <- data.frame(task = paste0(uf$cohort, " / ", uf$target), bb = uf$model, pooling = tools::toTitleCase(uf$pooling), d = uf$MI_refit - uf$MI_obs, src = "Sign-flip refit (192)")
 disc <- bind_rows(mutate(d1, bb = as.character(bb), pooling = as.character(pooling)), mutate(d2, bb = as.character(bb), pooling = as.character(pooling)), d3) %>%
   mutate(bb = factor(bb, BB_LV), pooling = factor(pooling, c("Mean", "Norm", "Moment", "Attention")))
-b3 <- max(abs(disc$d[disc$bb != "CONCH v1.5"])); b4 <- max(abs(disc$d))
+num <- !grepl("^Specification", disc$src)   # 27 Nov 2026: the tolerance band is the two numerical identities only
+b3 <- max(abs(disc$d[num & disc$bb != "CONCH v1.5"])); b4 <- max(abs(disc$d[num]))
+disc$src <- factor(disc$src, c("Specification: null\ncovariate block (PRAD, 32)", "Sign-flip refit (192)", "Replicate refit (48)"))
 p2c <- ggplot(disc, aes(x = d, y = src)) +
   annotate("rect", xmin = -b3, xmax = b3, ymin = -Inf, ymax = Inf, fill = "grey88", alpha = 0.7) +
   geom_vline(xintercept = 0, colour = "grey35", linewidth = 0.35) +
@@ -102,7 +104,7 @@ p2c <- ggplot(disc, aes(x = d, y = src)) +
   annotate("text", x = -b4, y = Inf, vjust = 1.6, hjust = -0.1, label = sprintf("%.4f", b4), size = 2.2, colour = COL_BB[["CONCH v1.5"]]) +
   scale_colour_manual(values = COL_BB, name = "Foundation model") + scale_shape_manual(values = c(16, 17, 15, 18), name = "Pooling") +
   scale_x_continuous(labels = label_number(accuracy = 0.001)) + scale_y_discrete(expand = expansion(add = c(0.6, 0.9))) +
-  labs(x = "Discrepancy between quantities\nrequired to be identical (nats)", y = NULL) +
+  labs(x = "Discrepancy from the original fit (nats)", y = NULL) +
   theme_pathmi() + guides(colour = guide_legend(order = 1), shape = guide_legend(order = 2))
 
 fig2 <- p2a / (p2b | p2c) + plot_layout(heights = c(1, 1.35), guides = "collect") + plot_annotation(tag_levels = "a") &
@@ -114,6 +116,6 @@ if (dir.exists(MS_FIG)) file.copy(file.path(FIG_DIR, "fig2_conditioning_repro.pd
 cat("=== r(MI, kappa) per task: four models / without CONCH ===\n"); print(as.data.frame(rlab[, c("task", "r4", "r3")]), digits = 3)
 cat("=== kappa by task x model (selected kernels, mean) ===\n"); print(round(with(best, tapply(eig_cond, list(task, bb), mean)), 1))
 cat("=== CRC covariate share (percent) by model ===\n"); print(crc %>% group_by(bb) %>% summarise(lo = min(pct_cov), hi = max(pct_cov)) %>% as.data.frame(), digits = 3)
-cat("=== bounds: three vision-only models", round(b3, 4), "| all four", round(b4, 4), "===\n")
+cat("=== numerical tolerance (two identities): three vision-only models", round(b3, 4), "| all four", round(b4, 4), "===\n")
 cat("nonzero discrepancies:\n"); print(disc %>% filter(abs(d) > 1e-9) %>% arrange(d) %>% as.data.frame(), digits = 3)
 cat("Figure written to", FIG_DIR, "\n")

@@ -110,7 +110,7 @@ pg <- ggplot(dl, aes(n)) + geom_hline(yintercept = 0, linewidth = 0.3) +
 
 # ---- h: the Record -------------------------------------------------------------------------
 fmt <- function(x, d = 3) ifelse(is.na(x), "--", formatC(x, format = "f", digits = d))
-card <- data.frame(field = c("Model, state", "Projection", "Patients", "Represented", "Null (resolution)", "90% interval", "Attributable", "Usable (AUC)", "Tiles, N90", "N evidence", "Status"),
+card <- data.frame(field = c("Model, state", "Projection", "Patients", "Represented", "Null (tolerance)", "90% interval", "Incremental", "Usable (AUC)", "Tiles, N90", "N evidence", "Status"),
   value = c("H-optimus-1, MSI", sprintf("%s, %s", c(pca = "linear", cosine = "cosine", rbf = "RBF", poly = "poly")[[r$projection]], r$pooling), as.character(r$n), sprintf("%s (%.0f%% of H)", fmt(r$I_hat), 100 * r$share),
             sprintf("%s (%s)", fmt(r$null_mean, 4), fmt(r$eps_rep, 4)), sprintf("%s to %s", fmt(r$ci90_lo), fmt(r$ci90_hi)), fmt(r$I_adjusted),
             sprintf("%s (%s)", fmt(r$I_usable), fmt(r$auc_oof, 2)), as.character(r$N90), ifelse(is.na(r$N_evidence), "not resolved", as.character(r$N_evidence)), r$status))

@@ -1,6 +1,6 @@
 [
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "UNI v2",
@@ -22,7 +22,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -32,10 +36,11 @@
       "null_mean": 0.0028,
       "null_sd": 0.0027,
       "permutation_p": 0.005,
+      "p_max16": 0.005,
       "epsilon_rep": 0.0163,
       "se": 0.0344,
       "ci90": [0.0451, 0.1584],
-      "attributable": 0.1022,
+      "incremental_beyond_covariates": 0.1022,
       "covariate_only": 0.012,
       "usable": 0.0786,
       "usable_sd": 0.0051,
@@ -51,7 +56,9 @@
       "status": "resolved",
       "lower_bound_90": 0.0451,
       "threshold": 0.0191,
+      "resolution_margin": 0.026,
       "N_evidence": 420,
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -103,10 +110,11 @@
         }
       ]
     },
-    "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.005; max-16 p = 0.005)", "the operational resolution criterion is met at the full cohort of 420 patients (lower 90% bound 0.045 > threshold 0.019 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, stage): 0.102 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.079 nats (out-of-patient AUC 0.82)"],
+    "interpretations_not_established": ["external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "Virchow2",
@@ -128,7 +136,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -138,10 +150,11 @@
       "null_mean": 0.0027,
       "null_sd": 0.0029,
       "permutation_p": 0.005,
+      "p_max16": 0.005,
       "epsilon_rep": 0.0163,
       "se": 0.0346,
       "ci90": [0.0614, 0.1754],
-      "attributable": 0.1162,
+      "incremental_beyond_covariates": 0.1162,
       "covariate_only": 0.0122,
       "usable": 0.1056,
       "usable_sd": 0.0098,
@@ -157,7 +170,9 @@
       "status": "resolved",
       "lower_bound_90": 0.0614,
       "threshold": 0.019,
+      "resolution_margin": 0.0424,
       "N_evidence": 421,
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -209,10 +224,11 @@
         }
       ]
     },
-    "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.005; max-16 p = 0.005)", "the operational resolution criterion is met at the full cohort of 421 patients (lower 90% bound 0.061 > threshold 0.019 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, stage): 0.116 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.106 nats (out-of-patient AUC 0.87)"],
+    "interpretations_not_established": ["external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "H-optimus-1",
@@ -234,7 +250,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -244,10 +264,11 @@
       "null_mean": 0.0027,
       "null_sd": 0.003,
       "permutation_p": 0.005,
+      "p_max16": 0.005,
       "epsilon_rep": 0.0163,
       "se": 0.0302,
       "ci90": [0.0681, 0.1675],
-      "attributable": 0.1092,
+      "incremental_beyond_covariates": 0.1092,
       "covariate_only": 0.012,
       "usable": 0.0991,
       "usable_sd": 0.0048,
@@ -263,7 +284,9 @@
       "status": "resolved",
       "lower_bound_90": 0.0681,
       "threshold": 0.019,
+      "resolution_margin": 0.0491,
       "N_evidence": 420,
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -315,10 +338,11 @@
         }
       ]
     },
-    "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.005; max-16 p = 0.005)", "the operational resolution criterion is met at the full cohort of 420 patients (lower 90% bound 0.068 > threshold 0.019 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, stage): 0.109 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.099 nats (out-of-patient AUC 0.85)"],
+    "interpretations_not_established": ["external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "CONCH v1.5",
@@ -340,7 +364,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -350,10 +378,11 @@
       "null_mean": 0.0025,
       "null_sd": 0.0023,
       "permutation_p": 0.005,
+      "p_max16": 0.005,
       "epsilon_rep": 0.0215,
       "se": 0.0275,
       "ci90": [0.0492, 0.1396],
-      "attributable": 0.0936,
+      "incremental_beyond_covariates": 0.0936,
       "covariate_only": 0.0173,
       "usable": 0.087,
       "usable_sd": 0.0104,
@@ -369,7 +398,9 @@
       "status": "resolved",
       "lower_bound_90": 0.0493,
       "threshold": 0.024,
+      "resolution_margin": 0.0252,
       "N_evidence": 408,
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -421,10 +452,11 @@
         }
       ]
     },
-    "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.005; max-16 p = 0.005)", "the operational resolution criterion is met at the full cohort of 408 patients (lower 90% bound 0.049 > threshold 0.024 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, stage): 0.094 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.087 nats (out-of-patient AUC 0.81)"],
+    "interpretations_not_established": ["external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "UNI v2",
@@ -446,7 +478,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -456,10 +492,11 @@
       "null_mean": 0.0037,
       "null_sd": 0.0045,
       "permutation_p": 0.005,
+      "p_max16": 0.005,
       "epsilon_rep": 0.0163,
       "se": 0.0327,
       "ci90": [0.0146, 0.1222],
-      "attributable": 0.0663,
+      "incremental_beyond_covariates": 0.0663,
       "covariate_only": 0.0021,
       "usable": 0.0458,
       "usable_sd": 0.0148,
@@ -475,7 +512,9 @@
       "status": "unresolved",
       "lower_bound_90": 0.0146,
       "threshold": 0.02,
-      "N_evidence": "not resolved at available n",
+      "resolution_margin": -0.0055,
+      "N_evidence": "not resolved at the evaluated sample sizes",
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -527,10 +566,11 @@
         }
       ]
     },
-    "interpretation": "An unresolved record indicates insufficient evidence under the evaluated representation, patient budget and protocol; it is not evidence that molecular information is universally absent."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.005; max-16 p = 0.005)", "insufficient evidence under the operational resolution criterion at the evaluated sample sizes (lower 90% bound 0.015 < threshold 0.020 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, Gleason, batch, purity): 0.066 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.046 nats (out-of-patient AUC 0.67)"],
+    "interpretations_not_established": ["resolution of the measurement under this protocol", "absence of molecular information in the tissue, or under another representation, readout or cohort size", "external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "Virchow2",
@@ -552,7 +592,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -562,10 +606,11 @@
       "null_mean": 0.0043,
       "null_sd": 0.0057,
       "permutation_p": 0.01,
+      "p_max16": 0.0149,
       "epsilon_rep": 0.0163,
       "se": 0.0241,
       "ci90": [0.0025, 0.0816],
-      "attributable": 0.0401,
+      "incremental_beyond_covariates": 0.0401,
       "covariate_only": 0.0019,
       "usable": 0.0599,
       "usable_sd": 0.0045,
@@ -581,7 +626,9 @@
       "status": "unresolved",
       "lower_bound_90": 0.0025,
       "threshold": 0.0206,
-      "N_evidence": "not resolved at available n",
+      "resolution_margin": -0.0181,
+      "N_evidence": "not resolved at the evaluated sample sizes",
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -633,10 +680,11 @@
         }
       ]
     },
-    "interpretation": "An unresolved record indicates insufficient evidence under the evaluated representation, patient budget and protocol; it is not evidence that molecular information is universally absent."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.010; max-16 p = 0.015)", "insufficient evidence under the operational resolution criterion at the evaluated sample sizes (lower 90% bound 0.002 < threshold 0.021 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, Gleason, batch, purity): 0.040 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.060 nats (out-of-patient AUC 0.70)"],
+    "interpretations_not_established": ["resolution of the measurement under this protocol", "absence of molecular information in the tissue, or under another representation, readout or cohort size", "external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "H-optimus-1",
@@ -658,7 +706,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -668,10 +720,11 @@
       "null_mean": 0.0036,
       "null_sd": 0.0047,
       "permutation_p": 0.005,
+      "p_max16": 0.005,
       "epsilon_rep": 0.0163,
       "se": 0.0357,
       "ci90": [0.0254, 0.1429],
-      "attributable": 0.0821,
+      "incremental_beyond_covariates": 0.0821,
       "covariate_only": 0.0021,
       "usable": 0.0673,
       "usable_sd": 0.0138,
@@ -687,7 +740,9 @@
       "status": "resolved",
       "lower_bound_90": 0.0254,
       "threshold": 0.0199,
+      "resolution_margin": 0.0054,
       "N_evidence": 272,
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -739,10 +794,11 @@
         }
       ]
     },
-    "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.005; max-16 p = 0.005)", "the operational resolution criterion is met at the full cohort of 272 patients (lower 90% bound 0.025 > threshold 0.020 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, Gleason, batch, purity): 0.082 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.067 nats (out-of-patient AUC 0.70)"],
+    "interpretations_not_established": ["external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "CONCH v1.5",
@@ -764,7 +820,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -774,10 +834,11 @@
       "null_mean": 0.0041,
       "null_sd": 0.0046,
       "permutation_p": 0.01,
+      "p_max16": 0.0398,
       "epsilon_rep": 0.0215,
       "se": 0.0176,
       "ci90": [0, 0.0555],
-      "attributable": 0.0243,
+      "incremental_beyond_covariates": 0.0243,
       "covariate_only": 0.0023,
       "usable": 0.0224,
       "usable_sd": 0.0112,
@@ -793,7 +854,9 @@
       "status": "unresolved",
       "lower_bound_90": -0.0023,
       "threshold": 0.0256,
-      "N_evidence": "not resolved at available n",
+      "resolution_margin": -0.0279,
+      "N_evidence": "not resolved at the evaluated sample sizes",
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -845,10 +908,11 @@
         }
       ]
     },
-    "interpretation": "An unresolved record indicates insufficient evidence under the evaluated representation, patient budget and protocol; it is not evidence that molecular information is universally absent."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.010; max-16 p = 0.040)", "insufficient evidence under the operational resolution criterion at the evaluated sample sizes (lower 90% bound -0.002 < threshold 0.026 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, Gleason, batch, purity): 0.024 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.022 nats (out-of-patient AUC 0.63)"],
+    "interpretations_not_established": ["resolution of the measurement under this protocol", "absence of molecular information in the tissue, or under another representation, readout or cohort size", "external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "UNI v2",
@@ -870,7 +934,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -880,10 +948,11 @@
       "null_mean": 0.0035,
       "null_sd": 0.0038,
       "permutation_p": 0.005,
+      "p_max16": 0.005,
       "epsilon_rep": 0.0163,
       "se": 0.0344,
       "ci90": [0.0319, 0.1452],
-      "attributable": 0.0885,
+      "incremental_beyond_covariates": 0.0885,
       "covariate_only": 0,
       "usable": 0.0827,
       "usable_sd": 0.0065,
@@ -899,7 +968,9 @@
       "status": "resolved",
       "lower_bound_90": 0.0319,
       "threshold": 0.0198,
+      "resolution_margin": 0.0121,
       "N_evidence": 272,
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -951,10 +1022,11 @@
         }
       ]
     },
-    "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.005; max-16 p = 0.005)", "the operational resolution criterion is met at the full cohort of 272 patients (lower 90% bound 0.032 > threshold 0.020 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, Gleason, batch, purity): 0.089 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.083 nats (out-of-patient AUC 0.74)"],
+    "interpretations_not_established": ["external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "Virchow2",
@@ -976,7 +1048,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -986,10 +1062,11 @@
       "null_mean": 0.0045,
       "null_sd": 0.0047,
       "permutation_p": 0.005,
+      "p_max16": 0.005,
       "epsilon_rep": 0.0163,
       "se": 0.0386,
       "ci90": [0.0271, 0.1541],
-      "attributable": 0.0906,
+      "incremental_beyond_covariates": 0.0906,
       "covariate_only": 0,
       "usable": 0.0886,
       "usable_sd": 0.012,
@@ -1005,7 +1082,9 @@
       "status": "resolved",
       "lower_bound_90": 0.0271,
       "threshold": 0.0208,
+      "resolution_margin": 0.0063,
       "N_evidence": 271,
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -1057,10 +1136,11 @@
         }
       ]
     },
-    "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.005; max-16 p = 0.005)", "the operational resolution criterion is met at the full cohort of 271 patients (lower 90% bound 0.027 > threshold 0.021 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, Gleason, batch, purity): 0.091 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.089 nats (out-of-patient AUC 0.73)"],
+    "interpretations_not_established": ["external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "H-optimus-1",
@@ -1082,7 +1162,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -1092,10 +1176,11 @@
       "null_mean": 0.0039,
       "null_sd": 0.0039,
       "permutation_p": 0.005,
+      "p_max16": 0.005,
       "epsilon_rep": 0.0163,
       "se": 0.0421,
       "ci90": [0.0811, 0.2195],
-      "attributable": 0.1503,
+      "incremental_beyond_covariates": 0.1503,
       "covariate_only": 0,
       "usable": 0.1118,
       "usable_sd": 0.0072,
@@ -1111,7 +1196,9 @@
       "status": "resolved",
       "lower_bound_90": 0.0811,
       "threshold": 0.0202,
+      "resolution_margin": 0.0609,
       "N_evidence": 272,
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -1163,10 +1250,11 @@
         }
       ]
     },
-    "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.005; max-16 p = 0.005)", "the operational resolution criterion is met at the full cohort of 272 patients (lower 90% bound 0.081 > threshold 0.020 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, Gleason, batch, purity): 0.150 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.112 nats (out-of-patient AUC 0.76)"],
+    "interpretations_not_established": ["external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "measurement",
     "provenance": {
       "model": "CONCH v1.5",
@@ -1188,7 +1276,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 200, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -1198,10 +1290,11 @@
       "null_mean": 0.0045,
       "null_sd": 0.004,
       "permutation_p": 0.005,
+      "p_max16": 0.005,
       "epsilon_rep": 0.0215,
       "se": 0.0323,
       "ci90": [0.0293, 0.1357],
-      "attributable": 0.0825,
+      "incremental_beyond_covariates": 0.0825,
       "covariate_only": 0,
       "usable": 0.0459,
       "usable_sd": 0.0087,
@@ -1217,7 +1310,9 @@
       "status": "resolved",
       "lower_bound_90": 0.0293,
       "threshold": 0.026,
+      "resolution_margin": 0.0033,
       "N_evidence": 271,
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -1269,10 +1364,11 @@
         }
       ]
     },
-    "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+    "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (fixed-arm permutation p = 0.005; max-16 p = 0.005)", "the operational resolution criterion is met at the full cohort of 271 patients (lower 90% bound 0.029 > threshold 0.026 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates (size, Gleason, batch, purity): 0.083 nats", "cross-fitted usable recoverability under the ridge readout within this cohort: 0.046 nats (out-of-patient AUC 0.69)"],
+    "interpretations_not_established": ["external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data (possible overlap with TCGA)", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
   },
   {
-    "schema": "pathmi.recoverability_record/1.0",
+    "schema": "pathmi.recoverability_record/1.1",
     "record_type": "negative control",
     "provenance": {
       "model": "H-optimus-1",
@@ -1294,7 +1390,11 @@
       "null": "200 label permutations, whole estimator refitted",
       "uncertainty": "half-sampling, B = 50 label-stratified half-cohort subsamples with the projection refitted, delete-d jackknife s.e.",
       "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+      "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+      "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+      "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+      "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+      "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
       "units": "nats"
     },
     "measurement": {
@@ -1304,10 +1404,11 @@
       "null_mean": 0.0027,
       "null_sd": 0.003,
       "permutation_p": {},
+      "p_max16": {},
       "epsilon_rep": 0.0163,
       "se": 0.0055,
       "ci90": [0, 0.0162],
-      "attributable": {},
+      "incremental_beyond_covariates": {},
       "covariate_only": {},
       "usable": -0.0015,
       "usable_sd": 0.0023,
@@ -1318,7 +1419,9 @@
       "status": "unresolved",
       "lower_bound_90": -0.002,
       "threshold": 0.019,
-      "N_evidence": "not resolved at available n",
+      "resolution_margin": -0.0209,
+      "N_evidence": "not resolved at the evaluated sample sizes",
+      "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
       "learning_curve": [
         {
           "n": 50,
@@ -1370,6 +1473,7 @@
         }
       ]
     },
-    "interpretation": "An unresolved record indicates insufficient evidence under the evaluated representation, patient budget and protocol; it is not evidence that molecular information is universally absent."
+    "supported_interpretations": "the protocol returns no recoverability above its resolution criterion under permuted labels (negative control)",
+    "interpretations_not_established": "any statement about the molecular state, since the labels are permuted"
   }
 ]

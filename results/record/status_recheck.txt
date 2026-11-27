@@ -1,0 +1,20 @@
+(i) full-cohort s.e. = SD_m sqrt(m/(N-m)): 57 arms | max |recomputed - stored| = 4.9e-17 | factor range 0.996-1.000 (m = floor(N/2)) 
+    learning s.e. = SD_n / sqrt(1 - n/N): 65 points | max |recomputed - stored| = 4.9e-17 
+    evaluated grid per arm: N = 420: {50, 100, 150, 200, 210, 420} | N = 408: {50, 100, 150, 200, 204, 408} | N = 421: {50, 100, 150, 200, 210, 421} | N = 271: {50, 100, 135, 150, 200, 271} | N = 272: {50, 100, 136, 150, 200, 272} 
+    at n = N/2 the learning factor is 1.414 and the jackknife factor 1.000: different quantities (studies of N/2 and of N patients) 
+(ii) Eq. (8) with eps_tol = CONCH v1.5 0.0215, vision-only 0.0163: 78 curve points | status changes vs stored: 0 | stored eps differs at 0 points 
+    records resolved: 9 of 12 measurements | control: unresolved | per-model tolerance sensitivity: 9 of 12 resolved (changes: 0) 
+    resolved before the full cohort: 0 | N_evidence values: 271, 272, 408, 420, 421 
+    CONTROL|hoptimus1|MSI-permuted|rbf_mean  unresolved margin -0.0209 (LCB -0.0020, thr 0.0190) | N_evidence none | best sub-cohort margin -0.0283 at n = 200 | per-model eps: unresolved 
+    CRC|conch_v15|MSI|rbf_norm               resolved   margin +0.0252 (LCB 0.0493, thr 0.0240) | N_evidence 408 | best sub-cohort margin -0.0420 at n = 150 | per-model eps: resolved 
+    CRC|hoptimus1|MSI|rbf_mean               resolved   margin +0.0491 (LCB 0.0681, thr 0.0190) | N_evidence 420 | best sub-cohort margin -0.0143 at n = 200 | per-model eps: resolved 
+    CRC|uni_v2|MSI|rbf_attention             resolved   margin +0.0260 (LCB 0.0451, thr 0.0191) | N_evidence 420 | best sub-cohort margin -0.0298 at n = 200 | per-model eps: resolved 
+    CRC|virchow2|MSI|pca_mean                resolved   margin +0.0424 (LCB 0.0614, thr 0.0190) | N_evidence 421 | best sub-cohort margin -0.0456 at n = 150 | per-model eps: resolved 
+    PRAD|conch_v15|ERG|cosine_mean           unresolved margin -0.0279 (LCB -0.0023, thr 0.0256) | N_evidence none | best sub-cohort margin -0.0440 at n = 150 | per-model eps: unresolved 
+    PRAD|conch_v15|ETS|cosine_mean           resolved   margin +0.0033 (LCB 0.0293, thr 0.0260) | N_evidence 271 | best sub-cohort margin -0.0507 at n = 100 | per-model eps: resolved 
+    PRAD|hoptimus1|ERG|cosine_moment         resolved   margin +0.0054 (LCB 0.0254, thr 0.0199) | N_evidence 272 | best sub-cohort margin -0.0532 at n = 100 | per-model eps: resolved 
+    PRAD|hoptimus1|ETS|cosine_moment         resolved   margin +0.0609 (LCB 0.0811, thr 0.0202) | N_evidence 272 | best sub-cohort margin -0.0513 at n = 200 | per-model eps: resolved 
+    PRAD|uni_v2|ERG|cosine_moment            unresolved margin -0.0055 (LCB 0.0146, thr 0.0200) | N_evidence none | best sub-cohort margin -0.0414 at n = 100 | per-model eps: unresolved 
+    PRAD|uni_v2|ETS|cosine_moment            resolved   margin +0.0121 (LCB 0.0319, thr 0.0198) | N_evidence 272 | best sub-cohort margin -0.0417 at n = 200 | per-model eps: resolved 
+    PRAD|virchow2|ERG|cosine_moment          unresolved margin -0.0181 (LCB 0.0025, thr 0.0206) | N_evidence none | best sub-cohort margin -0.0414 at n = 150 | per-model eps: unresolved 
+    PRAD|virchow2|ETS|cosine_norm            resolved   margin +0.0063 (LCB 0.0271, thr 0.0208) | N_evidence 271 | best sub-cohort margin -0.0598 at n = 50 | per-model eps: resolved 

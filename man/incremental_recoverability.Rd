@@ -2,7 +2,7 @@
 % Please edit documentation in R/usable.R
 \name{incremental_recoverability}
 \alias{incremental_recoverability}
-\title{Attributable (incremental) recoverability given covariates}
+\title{Incremental recoverability beyond measured covariates}
 \usage{
 incremental_recoverability(Z, C, y, ...)
 }
@@ -21,5 +21,10 @@ a list with the covariate-only, embedding-only and combined estimates,
 }
 \description{
 The gain in the PathMI estimate when the representation is added to the
-covariates, a model-based estimate of \eqn{I(Z;Y\mid C) = I(Z,C;Y) - I(C;Y)}.
+covariates. It is a model-based difference of two PathMI estimates, an
+empirical counterpart of the population conditional mutual information
+\eqn{I(Z;Y\mid C) = I(Z,C;Y) - I(C;Y)} and not itself an estimate of it. A
+zero covariate-only estimate means the walk found no evidence for the
+covariates; it does not show that confounding is absent, and the result
+does not establish causal attribution.
 }

@@ -1,0 +1,33 @@
+"check","model","cell","d"
+"null covariate block (specification)","UNI v2","PRAD|uni_v2|ERG|attention",0
+"null covariate block (specification)","UNI v2","PRAD|uni_v2|ERG|mean",0
+"null covariate block (specification)","UNI v2","PRAD|uni_v2|ERG|moment",0
+"null covariate block (specification)","UNI v2","PRAD|uni_v2|ERG|norm",0
+"null covariate block (specification)","UNI v2","PRAD|uni_v2|ETS|attention",0
+"null covariate block (specification)","UNI v2","PRAD|uni_v2|ETS|mean",0
+"null covariate block (specification)","UNI v2","PRAD|uni_v2|ETS|moment",0
+"null covariate block (specification)","UNI v2","PRAD|uni_v2|ETS|norm",0
+"null covariate block (specification)","Virchow2","PRAD|virchow2|ERG|attention",0
+"null covariate block (specification)","Virchow2","PRAD|virchow2|ERG|mean",0
+"null covariate block (specification)","Virchow2","PRAD|virchow2|ERG|moment",0
+"null covariate block (specification)","Virchow2","PRAD|virchow2|ERG|norm",0
+"null covariate block (specification)","Virchow2","PRAD|virchow2|ETS|attention",0
+"null covariate block (specification)","Virchow2","PRAD|virchow2|ETS|mean",0
+"null covariate block (specification)","Virchow2","PRAD|virchow2|ETS|moment",0
+"null covariate block (specification)","Virchow2","PRAD|virchow2|ETS|norm",0
+"null covariate block (specification)","H-optimus-1","PRAD|hoptimus1|ERG|attention",-0.0118677552771802
+"null covariate block (specification)","H-optimus-1","PRAD|hoptimus1|ERG|mean",0
+"null covariate block (specification)","H-optimus-1","PRAD|hoptimus1|ERG|moment",0
+"null covariate block (specification)","H-optimus-1","PRAD|hoptimus1|ERG|norm",0
+"null covariate block (specification)","H-optimus-1","PRAD|hoptimus1|ETS|attention",0
+"null covariate block (specification)","H-optimus-1","PRAD|hoptimus1|ETS|mean",0
+"null covariate block (specification)","H-optimus-1","PRAD|hoptimus1|ETS|moment",0
+"null covariate block (specification)","H-optimus-1","PRAD|hoptimus1|ETS|norm",0
+"null covariate block (specification)","CONCH v1.5","PRAD|conch_v15|ERG|attention",0
+"null covariate block (specification)","CONCH v1.5","PRAD|conch_v15|ERG|mean",0
+"null covariate block (specification)","CONCH v1.5","PRAD|conch_v15|ERG|moment",0
+"null covariate block (specification)","CONCH v1.5","PRAD|conch_v15|ERG|norm",0
+"null covariate block (specification)","CONCH v1.5","PRAD|conch_v15|ETS|attention",0
+"null covariate block (specification)","CONCH v1.5","PRAD|conch_v15|ETS|mean",0
+"null covariate block (specification)","CONCH v1.5","PRAD|conch_v15|ETS|moment",0
+"null covariate block (specification)","CONCH v1.5","PRAD|conch_v15|ETS|norm",0

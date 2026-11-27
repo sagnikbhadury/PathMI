@@ -1,5 +1,5 @@
 {
-  "schema": "pathmi.recoverability_record/1.0",
+  "schema": "pathmi.recoverability_record/1.1",
   "provenance": {
     "cohort": "simulated weak",
     "model": "simulated encoder (D = 64)",
@@ -7,6 +7,12 @@
     "projection": "cosine",
     "d": 20,
     "unit": "patient"
+  },
+  "protocol": {
+    "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max_configurations: joint-permutation maximum over the configurations it was selected from (detection within that set only; no correction of the selected magnitude)",
+    "numerical_tolerance": "empirical and protocol-specific; not a universal error bound; does not cover seed-unstable fits",
+    "evidence_rule": "resolved if estimate - 1.645 s.e. > null mean + epsilon_tol; an operational classification of evidence sufficiency, not a calibrated confidence procedure",
+    "selection": "if the configuration was selected on the full cohort, the interval and usable recoverability are conditional on it"
   },
   "measurement": {
     "n": 400,
@@ -17,18 +23,21 @@
     "null_mean": 0.001441,
     "null_sd": 0.002294,
     "permutation_p": 0.039604,
-    "epsilon_rep": 0.003999,
+    "p_max_configurations": 0.059406,
+    "n_configurations": 4,
+    "epsilon_tol": 0,
     "se": 0.00919,
     "ci90": [0, 0.023321],
-    "attributable": 0.010562,
+    "incremental_beyond_covariates": 0.010562,
     "usable": -0.002016,
     "usable_auc": 0.512,
     "tile_burden": null
   },
   "evidence": {
     "status": "unresolved",
-    "threshold": 0.005439,
+    "threshold": 0.001441,
     "lower_bound_90": -0.00691,
+    "resolution_margin": -0.00835,
     "N_evidence": null,
     "learning_curve": [
       {
@@ -39,7 +48,7 @@
         "usable": -0.012734,
         "source": "subsample",
         "lower": -0.025088,
-        "threshold": 0.033602,
+        "threshold": 0.029603,
         "resolved": false
       },
       {
@@ -50,7 +59,7 @@
         "usable": -0.001542,
         "source": "subsample",
         "lower": -0.011843,
-        "threshold": 0.012537,
+        "threshold": 0.008538,
         "resolved": false
       },
       {
@@ -61,7 +70,7 @@
         "usable": -0.001802,
         "source": "subsample",
         "lower": -0.005622,
-        "threshold": 0.011884,
+        "threshold": 0.007885,
         "resolved": false
       },
       {
@@ -72,29 +81,7 @@
         "usable": -0.001173,
         "source": "subsample",
         "lower": -0.006727,
-        "threshold": 0.006653,
-        "resolved": false
-      },
-      {
-        "n": 250,
-        "estimate": 0.00623,
-        "se": 0.011382,
-        "null_mean": 0.002808,
-        "usable": -0.000982,
-        "source": "subsample",
-        "lower": -0.012492,
-        "threshold": 0.006807,
-        "resolved": false
-      },
-      {
-        "n": 300,
-        "estimate": 0.003134,
-        "se": 0.007158,
-        "null_mean": 0.002325,
-        "usable": -0.000897,
-        "source": "subsample",
-        "lower": -0.00864,
-        "threshold": 0.006324,
+        "threshold": 0.002654,
         "resolved": false
       },
       {
@@ -105,10 +92,11 @@
         "usable": -0.002016,
         "source": "full cohort",
         "lower": -0.00691,
-        "threshold": 0.005439,
+        "threshold": 0.001441,
         "resolved": false
       }
     ]
   },
-  "interpretation": "An unresolved record indicates insufficient evidence under the evaluated representation, patient budget and protocol; it is not evidence that the molecular information is absent."
+  "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (permutation p = 0.040; max over 4 configurations p = 0.059)", "insufficient evidence under the operational resolution criterion (lower 90% bound -0.0069 < threshold 0.0014 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates: 0.0106 nats"],
+  "interpretations_not_established": ["resolution of the measurement under this protocol", "absence of molecular information in the tissue, or under another representation, readout or cohort size", "external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
 }

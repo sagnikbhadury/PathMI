@@ -50,7 +50,7 @@ MODELS <- c(uni_v2 = "UNI v2", virchow2 = "Virchow2", hoptimus1 = "H-optimus-1",
 # Record arms = each model's largest estimate per state in the grid (as in recoverability_record.R)
 g <- as.data.frame(readxl::read_excel(file.path(TRI, "mi summary table.xlsx")))
 emb2code <- c("UNI V2" = "uni_v2", "VIRCHOW" = "virchow2", "H-OPTIMUS 1" = "hoptimus1", "CONCH V1.5" = "conch_v15")
-EPS <- c(uni_v2 = 0.0163, virchow2 = 0.0163, hoptimus1 = 0.0163, conch_v15 = 0.0215)
+EPS <- c(uni_v2 = 0.0163, virchow2 = 0.0163, hoptimus1 = 0.0163, conch_v15 = 0.0215)   # = robustness/tolerance.csv (27 Nov 2026); statuses are recomputed in learning_summary.R from the Record's eps_rep
 g$code <- emb2code[g$Embeddings]; top <- do.call(rbind, lapply(split(g, list(g$Disease, g$target, g$code), drop = TRUE), function(d) d[which.max(d$MI_obs), ]))
 arms <- list()
 for (i in seq_len(nrow(top))) {

@@ -4,16 +4,27 @@
 \alias{select_representation}
 \title{Select a representation with a max-T test}
 \usage{
-select_representation(nulls)
+select_representation(nulls, check = TRUE)
 }
 \arguments{
 \item{nulls}{named list of [pathmi_null()] results computed with the same
 permutation matrix.}
+
+\item{check}{logical; stop if the stored permutation matrices differ.}
 }
 \value{
-a list with the selected name, its estimate and the max-T p value,
-  which controls the familywise error over the candidates.
+a list with the selected name, its estimate, all estimates, the
+  max-T p value `p_maxT`, the number of candidates and the null maxima `T_null`.
 }
 \description{
-Select a representation with a max-T test
+Takes the candidate with the largest estimate and tests it against the
+maximum over all candidates under each permutation,
+\eqn{p = (1 + \#\{b : \max_c \hat I_{b,c} \ge \max_c \hat I_c\}) / (1 + B)}.
+The candidates can be the four projections of one pooling rule (as in the
+paper's projection selection) or all sixteen pooling x projection
+configurations of a model and state (the paper's \eqn{p_{\max 16}}). The test
+is valid only when every candidate was refitted on the same permuted labels,
+which is checked. It adjusts detection within the set of candidates; it does
+not adjust across separate sets and does not correct the magnitude of the
+selected estimate.
 }

@@ -4,21 +4,24 @@
 \alias{evidence_status}
 \title{Evidence status of a measurement}
 \usage{
-evidence_status(estimate, se, null_mean, eps_rep, z = stats::qnorm(0.95))
+evidence_status(estimate, se, null_mean, eps_tol, z = stats::qnorm(0.95))
 }
 \arguments{
 \item{estimate, se, null_mean}{full-cohort estimate, its standard error and
 the permutation null mean.}
 
-\item{eps_rep}{reproducibility bound.}
+\item{eps_tol}{numerical tolerance.}
 
 \item{z}{quantile for the lower bound (1.645 for a 90 percent interval).}
 }
 \value{
-`"resolved"` when the lower bound exceeds the null plus the bound,
-  otherwise `"unresolved"`. An unresolved record indicates insufficient
-  evidence under the evaluated representation, patient budget and protocol;
-  it is not evidence that the information is absent.
+`"resolved"` when the lower bound exceeds the null plus the
+  tolerance, otherwise `"unresolved"`. This is an operational classification
+  of evidence sufficiency under the evaluated protocol, not a calibrated
+  confidence procedure. With a fixed-arm null it is conditional on the
+  configuration. An unresolved record indicates insufficient evidence under
+  the evaluated representation, patient budget and protocol; it is not
+  evidence that the information is absent.
 }
 \description{
 Evidence status of a measurement

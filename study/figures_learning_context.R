@@ -39,7 +39,7 @@ lc$margin <- lc$LCB - lc$threshold
 pa <- ggplot(lc, aes(n, margin, colour = model)) + geom_hline(yintercept = 0, linewidth = .3) +
   geom_line(linewidth = .45) + geom_point(aes(shape = resolved), size = 1.4) + scale_shape_manual(values = c(`TRUE` = 16, `FALSE` = 1), guide = "none") +
   facet_wrap(~task, nrow = 1, scales = "free_x") + scale_colour_manual(values = pal_m, name = NULL) + scale_x_continuous(breaks = c(50, 100, 200, 300, 430)) +
-  labs(x = "Patients n", y = expression(LCB[90](n) - (I[null](n) + epsilon[rep])), tag = "a") + th + theme(legend.position = "right")
+  labs(x = "Patients n", y = expression(LCB[90](n) - (I[null](n) + epsilon[tol])), tag = "a") + th + theme(legend.position = "right")
 
 pb <- ggplot(lc, aes(n, U_mean, colour = model)) + geom_hline(yintercept = 0, linewidth = .3, colour = "grey60") +
   geom_line(linewidth = .45) + geom_point(size = 1.1) +

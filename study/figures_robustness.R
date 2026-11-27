@@ -18,7 +18,7 @@ TRI <- normalizePath(dirname(this_file), winslash = "/"); FIG <- file.path(TRI, 
 BB <- c("UNI v2", "Virchow2", "H-optimus-1", "CONCH v1.5")
 pal_m <- c("UNI v2" = "#0072B2", "Virchow2" = "#D55E00", "H-optimus-1" = "#009E73", "CONCH v1.5" = "#CC79A7")
 pal_t <- c("CRC/MSI" = "#E69F00", "PRAD/ERG" = "#56B4E9", "PRAD/ETS" = "#009E73")
-EPS <- 0.0163
+# 27 Nov 2026: panel d uses each record's own tolerance (0.0215 for CONCH v1.5; it used 0.0163 for every model)
 th <- theme_bw(base_size = 7.5) + theme(panel.grid.minor = element_blank(), legend.key.size = unit(3, "mm"), legend.text = element_text(size = 6.5), plot.tag = element_text(face = "bold", size = 9))
 
 us <- read.csv(file.path(TRI, "usable", "usable_recoverability.csv"), stringsAsFactors = FALSE) %>% mutate(task = paste0(cohort, "/", target), model = factor(model, BB)) %>%
@@ -37,7 +37,6 @@ pal_c <- setNames(c("#E69F00", "#56B4E9", "#009E73", "#CC79A7", "#D55E00", "#999
 # a  (recorded usable quantity: ridge readout)
 r_a <- cor(us$I_usable_ridge, us$MI_obs); r_s <- cor(us$I_usable_ridge, us$MI_obs, method = "spearman")
 pa <- ggplot(us, aes(MI_obs, I_usable_ridge, colour = task, shape = model)) +
-  annotate("rect", xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = mean(us$null_mean) + 2 * mean(us$null_sd), fill = "grey85", alpha = .5) +
   geom_abline(slope = 1, intercept = 0, linetype = "22", colour = "grey50", linewidth = .3) + geom_hline(yintercept = 0, colour = "grey70", linewidth = .3) +
   geom_point(size = 1.4, alpha = .85) + scale_colour_manual(values = pal_t, name = NULL) + scale_shape_manual(values = c(16, 17, 15, 18), name = NULL) +
   annotate("text", x = 0.003, y = max(us$I_usable_ridge) * 1.04, hjust = 0, vjust = 1, size = 2.3, label = sprintf("r = %.2f, rho = %.2f", r_a, r_s)) +
@@ -59,7 +58,7 @@ pc <- ggplot(vb, aes(v_beta, MI, colour = cfg, linetype = role)) +
 rec$x <- as.numeric(rec$model) + (as.numeric(factor(rec$task, names(pal_t))) - 2) * 0.22
 pd <- ggplot(rec, aes(x = x, y = I_hat, colour = task)) +
   geom_errorbar(aes(ymin = ci90_lo, ymax = ci90_hi), width = 0, linewidth = .5) + geom_point(size = 1.6) +
-  geom_errorbar(aes(ymin = I_hat - EPS, ymax = I_hat + EPS), width = .18, linewidth = .3, colour = "black") +
+  geom_errorbar(aes(ymin = I_hat - eps_rep, ymax = I_hat + eps_rep), width = .18, linewidth = .3, colour = "black") +
   scale_x_continuous(breaks = 1:4, labels = c("UNI v2", "Virchow2", "H-opt-1", "CONCH")) + scale_colour_manual(values = pal_t, name = NULL) +
   labs(x = NULL, y = "Recoverability, nats", tag = "d") + th + theme(legend.position = "none", axis.text.x = element_text(size = 6.5))
 # e

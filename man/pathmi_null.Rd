@@ -34,7 +34,9 @@ a PSOCK cluster on Windows).}
 }
 \value{
 a list with `null` (vector of permuted estimates), `mean`, `sd`,
-  `p_value` and the observed fit.
+  `p_value`, the observed fit, the permutation matrix `perms` and the fit
+  `settings` (used by [select_representation()] and
+  [verify_permutation_alignment()]).
 }
 \description{
 Refits the whole estimator (ranking, walk and selection) on permuted labels.

@@ -1,7 +1,7 @@
 Package: PathMI
 Type: Package
 Title: Measuring Molecular Recoverability in Pathology Foundation-Model Embeddings
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: c(
     person("Sagnik", "Bhadury", email = "bhadury@umich.edu", role = c("aut", "cre")))
 Description: Estimates how much information about a patient's binary
@@ -10,15 +10,17 @@ Description: Estimates how much information about a patient's binary
     estimator: a Polya-Gamma logistic horseshoe ranks the coordinates, a walk
     over the nested models scored by their Laplace marginal likelihood selects
     the model, and the estimate is the log Bayes factor per patient. Around the
-    estimator the package provides the metrology used in the accompanying
-    paper: tile pooling and patient-level aggregation, linear and kernel PCA
+    estimator the package provides the measurement protocol used in the
+    accompanying paper: tile pooling and patient-level aggregation, linear and kernel PCA
     with out-of-sample projection, a permutation null with full refitting and
-    joint-permutation max-T selection, half-sampling (delete-d jackknife)
-    uncertainty, reproducibility bounds, attributable (incremental) and
+    joint-permutation max-T selection over projections or over all pooling x
+    projection configurations, a check that permuted fits are aligned,
+    half-sampling (delete-d jackknife) uncertainty, an empirical numerical
+    tolerance, incremental recoverability beyond measured covariates and
     patient-held-out usable recoverability, patient-number learning curves
     with an evidence status, the exact tile-level decomposition with specific
     surprise maps, the tissue-sampling burden, the Recoverability Record with
-    JSON export, simulators, and comparison estimators (LASSO-CV, OLS and the
+    supported and not-established interpretations and JSON export, simulators, and comparison estimators (LASSO-CV, OLS and the
     Donsker-Varadhan bound with a linear critic).
 License: MIT + file LICENSE
 Encoding: UTF-8

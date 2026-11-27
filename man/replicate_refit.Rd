@@ -4,7 +4,7 @@
 \alias{replicate_refit}
 \alias{sign_flip_refit}
 \alias{null_block_refit}
-\title{Identity checks for the reproducibility bound}
+\title{Refit checks for the numerical tolerance}
 \usage{
 replicate_refit(Z, y, fit, seed = 4242L, ...)
 
@@ -28,7 +28,9 @@ null_block_refit(Z, y, fit, q = 5L, seed = 777L, ...)
 \description{
 `replicate_refit()` refits with an independent seed; `sign_flip_refit()`
 flips the sign of every other coordinate (an equivalent representation) and
-refits; `null_block_refit()` appends `q` columns drawn independently of the
-label, which carry no information, and refits. Each returns the discrepancy
-from the original estimate.
+refits. These two are numerical identities and define
+[numerical_tolerance()]. `null_block_refit()` appends `q` columns drawn
+independently of the label, which carry no information, and refits; it
+changes the model and is a specification check, reported separately. Each
+returns the discrepancy from the original estimate.
 }

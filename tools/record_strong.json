@@ -1,5 +1,5 @@
 {
-  "schema": "pathmi.recoverability_record/1.0",
+  "schema": "pathmi.recoverability_record/1.1",
   "provenance": {
     "cohort": "simulated strong",
     "model": "simulated encoder (D = 64)",
@@ -7,6 +7,12 @@
     "projection": "poly",
     "d": 20,
     "unit": "patient"
+  },
+  "protocol": {
+    "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max_configurations: joint-permutation maximum over the configurations it was selected from (detection within that set only; no correction of the selected magnitude)",
+    "numerical_tolerance": "empirical and protocol-specific; not a universal error bound; does not cover seed-unstable fits",
+    "evidence_rule": "resolved if estimate - 1.645 s.e. > null mean + epsilon_tol; an operational classification of evidence sufficiency, not a calibrated confidence procedure",
+    "selection": "if the configuration was selected on the full cohort, the interval and usable recoverability are conditional on it"
   },
   "measurement": {
     "n": 400,
@@ -17,18 +23,21 @@
     "null_mean": 0.001715,
     "null_sd": 0.002888,
     "permutation_p": 0.009901,
-    "epsilon_rep": 0.003999,
+    "p_max_configurations": 0.009901,
+    "n_configurations": 4,
+    "epsilon_tol": 0,
     "se": 0.023561,
     "ci90": [0.012829, 0.09034],
-    "attributable": 0.060529,
+    "incremental_beyond_covariates": 0.060529,
     "usable": 0.04451,
     "usable_auc": 0.677219,
     "tile_burden": [15, 30]
   },
   "evidence": {
     "status": "resolved",
-    "threshold": 0.005713,
+    "threshold": 0.001715,
     "lower_bound_90": 0.012829,
+    "resolution_margin": 0.011115,
     "N_evidence": 400,
     "learning_curve": [
       {
@@ -39,7 +48,7 @@
         "usable": 0.002695,
         "source": "subsample",
         "lower": -0.02167,
-        "threshold": 0.025541,
+        "threshold": 0.021543,
         "resolved": false
       },
       {
@@ -50,7 +59,7 @@
         "usable": 0.010626,
         "source": "subsample",
         "lower": -0.017776,
-        "threshold": 0.017539,
+        "threshold": 0.013541,
         "resolved": false
       },
       {
@@ -61,7 +70,7 @@
         "usable": 0.02003,
         "source": "subsample",
         "lower": -0.022456,
-        "threshold": 0.010029,
+        "threshold": 0.00603,
         "resolved": false
       },
       {
@@ -72,29 +81,7 @@
         "usable": 0.028409,
         "source": "subsample",
         "lower": -0.021543,
-        "threshold": 0.008064,
-        "resolved": false
-      },
-      {
-        "n": 250,
-        "estimate": 0.036901,
-        "se": 0.033799,
-        "null_mean": 0.002191,
-        "usable": 0.030395,
-        "source": "subsample",
-        "lower": -0.018693,
-        "threshold": 0.00619,
-        "resolved": false
-      },
-      {
-        "n": 300,
-        "estimate": 0.044196,
-        "se": 0.040077,
-        "null_mean": 0.002031,
-        "usable": 0.039503,
-        "source": "subsample",
-        "lower": -0.021724,
-        "threshold": 0.00603,
+        "threshold": 0.004065,
         "resolved": false
       },
       {
@@ -105,10 +92,11 @@
         "usable": 0.04451,
         "source": "full cohort",
         "lower": 0.012829,
-        "threshold": 0.005713,
+        "threshold": 0.001715,
         "resolved": true
       }
     ]
   },
-  "interpretation": "The representation carries information about the state above the estimator's null and resolution at this patient budget."
+  "supported_interpretations": ["above-null recoverability under the stated representation, readout family and protocol (permutation p = 0.010; max over 4 configurations p = 0.010)", "the operational resolution criterion is met at n = 400 (lower 90% bound 0.0128 > threshold 0.0017 nats)", "measured incremental recoverability persists after adjustment for the evaluated covariates: 0.0605 nats", "cross-fitted usable recoverability within this cohort: 0.0445 nats (AUC 0.68)"],
+  "interpretations_not_established": ["external generalizability to other cohorts, sites, scanners or magnifications", "spatially localized molecular fidelity of tile-level evidence", "causal mechanism or causal attribution of the information to tissue biology", "clinical utility", "absence of residual confounding by unmeasured biological, clinical or acquisition-related variables", "independence from the foundation model's pretraining data", "a lower bound on population mutual information", "recoverability within any constituent subgroup of the cohort"]
 }

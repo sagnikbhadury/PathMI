@@ -1,5 +1,5 @@
 {
-  "schema": "pathmi.recoverability_record/1.0",
+  "schema": "pathmi.recoverability_record/1.1",
   "record_type": "negative control",
   "provenance": {
     "model": "H-optimus-1",
@@ -21,7 +21,11 @@
     "null": "200 label permutations, whole estimator refitted",
     "uncertainty": "half-sampling, B = 50 label-stratified half-cohort subsamples with the projection refitted, delete-d jackknife s.e.",
     "usable": "ridge logistic, stratified 5-fold x 10 repeats, standardisation, projection and penalty fitted in training patients only",
-    "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep",
+    "selection": "configuration chosen as the largest of the 16 pooling x projection estimates on the full cohort; the sampling interval and the usable recoverability are conditional on the configuration and do not account for its selection",
+    "detection": "permutation_p: fixed-arm null of the recorded configuration; p_max16: joint-permutation maximum over the 16 configurations of this model-state pair (adjusts detection within the pair, not across pairs, and does not correct the magnitude of the selected estimate)",
+    "numerical_tolerance": "empirical and protocol-specific: largest discrepancy over replicate refits and sign-flip refits within the model group; not a universal error bound; does not cover the chain-seed instability of CONCH v1.5 polynomial/moment MSI (0.032 to 0.104 nats)",
+    "evidence_rule": "resolved if Ihat - 1.645 s.e. > I_null + epsilon_rep, with I_null the fixed-arm permutation null; an operational classification of evidence sufficiency under this protocol, not a calibrated confidence procedure for population mutual information",
+    "tile_burden_readout": "fixed mean-pooling, linear-PCA readout of the model (not necessarily the recorded configuration); tiles needed to retain a fraction of its whole-slide in-sample plug-in log-score gain",
     "units": "nats"
   },
   "measurement": {
@@ -31,10 +35,11 @@
     "null_mean": 0.0027,
     "null_sd": 0.003,
     "permutation_p": {},
+    "p_max16": {},
     "epsilon_rep": 0.0163,
     "se": 0.0055,
     "ci90": [0, 0.0162],
-    "attributable": {},
+    "incremental_beyond_covariates": {},
     "covariate_only": {},
     "usable": -0.0015,
     "usable_sd": 0.0023,
@@ -45,7 +50,9 @@
     "status": "unresolved",
     "lower_bound_90": -0.002,
     "threshold": 0.019,
-    "N_evidence": "not resolved at available n",
+    "resolution_margin": -0.0209,
+    "N_evidence": "not resolved at the evaluated sample sizes",
+    "N_evidence_definition": "smallest evaluated sample size satisfying the operational resolution criterion (grid 50, 100, 150, 200, floor(N/2), N)",
     "learning_curve": [
       {
         "n": 50,
@@ -97,5 +104,6 @@
       }
     ]
   },
-  "interpretation": "An unresolved record indicates insufficient evidence under the evaluated representation, patient budget and protocol; it is not evidence that molecular information is universally absent."
+  "supported_interpretations": "the protocol returns no recoverability above its resolution criterion under permuted labels (negative control)",
+  "interpretations_not_established": "any statement about the molecular state, since the labels are permuted"
 }

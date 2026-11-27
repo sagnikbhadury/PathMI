@@ -1,0 +1,9 @@
+Kendall's W of the 12-pair ranking over 2000 draw-resamples: N90 0.737 | N95 0.586
+pairwise N90 orders (point estimate) that hold (<=) in >= 95% of resamples: 37 of 66; in >= 90%: 44; in 100%: 15
+UNI v2       N90 MSI/ERG/ETS = 15/15/20 | P(MSI <= ERG) 0.45 | P(MSI <= ETS) 1.00 | P(ETS <= ERG) 0.25 | P(MSI < both fusions) 0.16
+Virchow2     N90 MSI/ERG/ETS = 30/50/40 | P(MSI <= ERG) 0.94 | P(MSI <= ETS) 1.00 | P(ETS <= ERG) 0.50 | P(MSI < both fusions) 0.76
+H-optimus-1  N90 MSI/ERG/ETS = 15/20/40 | P(MSI <= ERG) 1.00 | P(MSI <= ETS) 1.00 | P(ETS <= ERG) 0.51 | P(MSI < both fusions) 1.00
+CONCH v1.5   N90 MSI/ERG/ETS = 30/25/25 | P(MSI <= ERG) 0.20 | P(MSI <= ETS) 0.12 | P(ETS <= ERG) 0.87 | P(MSI < both fusions) 0.04
+MSI  N90 UNI/Hopt/Virchow2/CONCH = 15/15/30/30 | P(UNI <= Virchow2) 1.00 | P(UNI <= CONCH) 1.00 | P(Hopt <= Virchow2) 1.00 | P(Hopt <= CONCH) 1.00 | P(UNI <= Hopt) 0.71
+ERG  N90 UNI/Hopt/Virchow2/CONCH = 15/20/50/25 | P(UNI <= Virchow2) 1.00 | P(UNI <= CONCH) 0.98 | P(Hopt <= Virchow2) 0.89 | P(Hopt <= CONCH) 0.66 | P(UNI <= Hopt) 0.99
+ETS  N90 UNI/Hopt/Virchow2/CONCH = 20/40/40/25 | P(UNI <= Virchow2) 1.00 | P(UNI <= CONCH) 0.90 | P(Hopt <= Virchow2) 0.98 | P(Hopt <= CONCH) 0.32 | P(UNI <= Hopt) 0.97

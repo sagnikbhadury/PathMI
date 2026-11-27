@@ -128,7 +128,7 @@ target_block <- function(coh, cohort, tg, lab_pos, lab_neg, what) {
   maps <- lapply(names(ex), function(k) {
     sid <- ex[[k]]; r <- st[st$slide == sid, ]
     d <- coh$tiles[coh$tiles$slide == sid, ]; d$level0_w <- r$level0_w; d$level0_h <- r$level0_h
-    ttl <- sprintf("%s\n%s\np = %.2f, sd %.2f\n%s tiles, %.0f%% informative", what[[k]], substr(sid, 1, 12),
+    ttl <- sprintf("%s\n%s\np = %.2f, sd %.2f\n%s tiles, %.0f%% high-surprise", what[[k]], substr(sid, 1, 12),
                    r$p_hat, r$eta_sd, format(r$n_tiles, big.mark = ","), 100 * r$frac_informative)
     tile_panel(d, ps, cohort, sid, kl, ttl, lim) })
   maps_row <- wrap_plots(maps, nrow = 1) + plot_layout(guides = "collect") & theme(legend.position = "bottom")
@@ -138,7 +138,7 @@ target_block <- function(coh, cohort, tg, lab_pos, lab_neg, what) {
     geom_point(size = 1.2, stroke = 0.4) +
     scale_colour_manual(values = COL_LAB, labels = c(`0` = lab_neg, `1` = lab_pos), name = NULL) +
     scale_x_continuous(labels = percent_format(accuracy = 1)) +
-    labs(x = "Informative tiles (share of slide)", y = "Posterior logit (90% bar)") + theme_pathmi()
+    labs(x = "High-surprise tiles (share of slide)", y = "Posterior logit (90% bar)") + theme_pathmi()
   p_doe <- ggplot(stp, aes(x = doe_term, fill = factor(y))) +
     geom_histogram(bins = 40, alpha = 0.6, position = "identity", colour = NA) +
     geom_vline(xintercept = 0, colour = "grey40", linewidth = 0.3) +

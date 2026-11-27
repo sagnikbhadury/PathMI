@@ -11,11 +11,12 @@ learning_curve(
   d = 50L,
   n_grid = c(50L, 100L, 150L, 200L),
   B = 50L,
-  eps_rep,
+  eps_tol,
   full = NULL,
   usable = TRUE,
   level = 0.95,
   cores = 1L,
+  eps_rep = NULL,
   ...
 )
 }
@@ -30,7 +31,7 @@ learning_curve(
 
 \item{B}{subsamples per size.}
 
-\item{eps_rep}{reproducibility bound (nats).}
+\item{eps_tol}{numerical tolerance (nats), from [numerical_tolerance()].}
 
 \item{full}{optional list with the full-cohort `estimate`, `null_mean` and
 `se` (for example from [pathmi_null()] and [half_sampling()]), appended as
@@ -42,6 +43,8 @@ the last point of the curve.}
 two-sided interval used in the paper).}
 
 \item{cores}{parallel workers.}
+
+\item{eps_rep}{deprecated name of `eps_tol`.}
 
 \item{...}{passed to [pathmi_fit()].}
 }
@@ -55,6 +58,13 @@ estimator on permuted labels (the null at that `n`) and, optionally, the
 usable recoverability on each. The standard error of a study of `n`
 independent patients is the spread of the subsample estimates divided by the
 finite-population factor \eqn{(1 - n/N)^{1/2}}. A claim is resolved at `n`
-when \eqn{\bar I(n) - z\,\mathrm{s.e.}(n) > \bar I_0(n) + \epsilon_{rep}};
-`N_evidence` is the smallest such `n`.
+when \eqn{\bar I(n) - z\,\mathrm{s.e.}(n) > \bar I_0(n) + \epsilon_{tol}};
+`N_evidence` is the smallest evaluated sample size satisfying this
+operational resolution criterion. The criterion classifies evidence
+sufficiency under the evaluated protocol; it is not a calibrated confidence
+procedure for population mutual information. The factor
+\eqn{(1 - n/N)^{-1/2}} gives the standard error of a study of `n` patients;
+at \eqn{n = N/2} it is \eqn{\sqrt 2}, whereas the delete-d jackknife factor of
+the full-cohort standard error ([half_sampling()]) is 1. Both scalings are
+approximate for this adaptive estimator.
 }

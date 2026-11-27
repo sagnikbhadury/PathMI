@@ -1,6 +1,6 @@
 ## Usable recoverability: the out-of-patient log-likelihood gain of a readout,
 ## with every data-dependent transformation fitted in the training patients;
-## and attributable (incremental) recoverability given covariates.
+## and incremental recoverability beyond measured covariates.
 
 strat_folds <- function(y, K, group = NULL) {
   if (is.null(group)) { f <- integer(length(y)); for (cls in 0:1) { i <- which(y == cls); f[i] <- sample(rep_len(seq_len(K), length(i))) }; return(f) }
@@ -65,10 +65,15 @@ usable_recoverability <- function(X, y, decomp = "pca", d = 50L, K = 5L, R = 10L
   list(usable = apply(arr["I", , , drop = FALSE], 2, mean), sd = apply(arr["I", , , drop = FALSE], 2, stats::sd), auc = apply(arr["auc", , , drop = FALSE], 2, mean), repeats = arr)
 }
 
-#' Attributable (incremental) recoverability given covariates
+#' Incremental recoverability beyond measured covariates
 #'
 #' The gain in the PathMI estimate when the representation is added to the
-#' covariates, a model-based estimate of \eqn{I(Z;Y\mid C) = I(Z,C;Y) - I(C;Y)}.
+#' covariates. It is a model-based difference of two PathMI estimates, an
+#' empirical counterpart of the population conditional mutual information
+#' \eqn{I(Z;Y\mid C) = I(Z,C;Y) - I(C;Y)} and not itself an estimate of it. A
+#' zero covariate-only estimate means the walk found no evidence for the
+#' covariates; it does not show that confounding is absent, and the result
+#' does not establish causal attribution.
 #' @param Z projected representation.
 #' @param C covariate matrix (standardised).
 #' @param y binary labels.

@@ -24,7 +24,9 @@
 suppressPackageStartupMessages({ library(readxl); library(dplyr); library(tidyr) })
 this_file <- sub("^--file=", "", grep("^--file=", commandArgs(), value = TRUE)[1])
 TRI <- normalizePath(dirname(this_file), winslash = "/")
-EPS_V <- 0.0163; EPS_C <- 0.0215   # 20 Nov 2026: max over the three identities incl. the sign-flip refit
+# 27 Nov 2026: numerical tolerance from tolerance.R (replicate refit + sign-flip refit; the null covariate block is a specification check, not in it)
+TOL <- read.csv(file.path(TRI, "robustness", "tolerance.csv"), stringsAsFactors = FALSE)
+EPS_V <- TOL$eps_tol_rounded[TOL$group == "vision-only"]; EPS_C <- TOL$eps_tol_rounded[TOL$group == "CONCH v1.5"]
 BB <- c("UNI v2", "Virchow2", "H-optimus-1", "CONCH v1.5")
 harm <- function(e) case_when(grepl("^UNI", e) ~ BB[1], grepl("^VIRCHOW", e) ~ BB[2], grepl("^H-OPT", e) ~ BB[3], grepl("^CONCH", e) ~ BB[4])
 code <- c("UNI v2" = "uni_v2", "Virchow2" = "virchow2", "H-optimus-1" = "hoptimus1", "CONCH v1.5" = "conch_v15")

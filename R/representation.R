@@ -9,7 +9,7 @@
 #'   coordinate.
 #' @param method one of `"mean"`, `"norm"` (tiles weighted by their L2 norm),
 #'   `"moment"` (mean and elementwise standard deviation, 2D coordinates) or
-#'   `"attention"` (untrained attention with weights drawn once from the
+#'   `"attention"` (untrained random attention, weights drawn once from the
 #'   Kaiming uniform distribution, hidden size 128).
 #' @param seed seed for the untrained attention weights (identical for every
 #'   slide when the seed is fixed).

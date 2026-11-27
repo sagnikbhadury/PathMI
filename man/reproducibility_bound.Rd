@@ -2,22 +2,18 @@
 % Please edit documentation in R/inference.R
 \name{reproducibility_bound}
 \alias{reproducibility_bound}
-\title{Reproducibility bound from quantities required to be identical}
+\title{Reproducibility bound (deprecated)}
 \usage{
 reproducibility_bound(...)
 }
 \arguments{
-\item{...}{numeric vectors of discrepancies (nats), one per identity.}
+\item{...}{numeric vectors of discrepancies.}
 }
 \value{
-a list with the `bound`, the 95th percentile and per-identity maxima.
+as [numerical_tolerance()].
 }
 \description{
-The bound is the largest discrepancy among quantities the design requires to
-be identical, for example (i) a replicate refit with an independent
-random-number stream, (ii) the estimate after adding a covariate block that
-carries no information, and (iii) a refit after the projection is recomputed
-by an independent routine (coordinate signs may flip). It therefore includes
-the Monte Carlo error of the sampler. Contrasts are reported in units of this
-bound.
+Superseded by [numerical_tolerance()]. An argument named `null_block` or
+`specification` is treated as a specification check and kept out of the
+tolerance; every other argument is a numerical identity.
 }

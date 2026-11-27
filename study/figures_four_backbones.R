@@ -80,7 +80,8 @@ fit <- lm(MI_obs ~ (task + bb + kernel + pooling)^2, data = grid); an <- anova(f
 
 cfg <- grid %>% group_by(task) %>% mutate(rank64 = rank(-MI_obs), gap = max(MI_obs) - MI_obs) %>% ungroup() %>%
   group_by(bb, kernel, pooling) %>% summarise(mean_rank = mean(rank64), worst_rank = max(rank64), max_gap = max(gap), .groups = "drop")
-BOUND <- 0.0163   # 20 Nov 2026: max over the three identities (replicate refit, null covariate block, sign-flip refit), vision-only models
+# 27 Nov 2026: numerical tolerance of the vision-only models from tolerance.R (replicate refit + sign-flip refit)
+BOUND <- with(read.csv(file.path(TAB_DIR, "robustness", "tolerance.csv"), stringsAsFactors = FALSE), eps_tol_rounded[group == "vision-only"])
 nullband <- grid %>% group_by(task) %>% summarise(hi = mean(null_mean) + 2 * mean(null_sd), .groups = "drop")
 
 # ---- panel a ------------------------------------------------------------------
@@ -107,7 +108,7 @@ p4b <- ggplot(mr_plot, aes(x = mean_rank, y = bb)) +
   scale_colour_manual(values = c("CRC / MSI" = "#E69F00", "PRAD / ERG" = "#56B4E9", "PRAD / ETS" = "#009E73"), name = "Task") +
   scale_x_continuous(limits = c(1, 4), breaks = 1:4) +
   labs(x = "Mean within-task rank (1 = best of four)", y = NULL,
-       caption = sprintf("Open circle, all 48 matched blocks (Friedman p < 0.0001).\nKendall's W across tasks = %.2f.", W_bb)) +
+       caption = sprintf("Open circle, all 48 matched blocks.\nKendall's W across tasks = %.2f (descriptive).", W_bb)) +
   theme_pathmi() + theme(plot.caption = element_text(size = BASE - 2, hjust = 0, colour = "grey30")) +
   guides(colour = guide_legend(nrow = 1))
 
@@ -119,7 +120,7 @@ p4c <- ggplot(cfg, aes(x = mean_rank, y = max_gap)) +
   geom_point(aes(colour = bb, shape = kernel), size = 1.7, stroke = 0.5) +
   geom_text(data = hl, aes(label = paste(kernel, pooling, sep = " / ")), size = 2.1, hjust = -0.15,
             vjust = ifelse(hl$kernel == "Cosine", -0.6, 1.5)) +
-  annotate("text", x = Inf, y = BOUND, label = sprintf("reproducibility bound %.4f", BOUND), hjust = 1.02, vjust = -0.4, size = 2.2, colour = "grey30") +
+  annotate("text", x = Inf, y = BOUND, label = sprintf("numerical tolerance %.4f", BOUND), hjust = 1.02, vjust = -0.4, size = 2.2, colour = "grey30") +
   scale_colour_manual(values = COL_BB, name = "Foundation model") +
   scale_shape_manual(values = c(16, 17, 15, 18), name = "Decomposition") +
   scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, 0.08))) +
